@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
+from urllib import request
 import time
 
 def extractPage(url, links):
@@ -33,7 +34,10 @@ def extract(baseURL, nodeURL):
     
     #Navigate through each page and append the links
     for pageIterator in range(2, lastNumber):
-        extractPage(url + str(pageIterator), links)
+        try:
+            extractPage(url + str(pageIterator), links)
+        except urllib.error.HTTPError:
+            pageIterator -= 1
+            continue
 
     return links
-      

@@ -1,8 +1,9 @@
 from bs4 import BeautifulSoup
 import urllib
 
+
 def extractText(url, text):
-    #extract the text from the link and append it to text
+    # extract the text from the link and append it to text
     page = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(page, 'lxml')
     try:
@@ -14,18 +15,20 @@ def extractText(url, text):
     pageInfo = list()
     pageInfo.append(headline)
     pageInfo.append(date)
+    pageText = list()
     for paragraph in content:
-        pageInfo.append(paragraph.replace('\xa0', ' ').replace("\'", "'"))
-        
+        pageText.append(paragraph.replace('\xa0', ' ').replace("\'", "'").replace('\u0101', ' '))
+
+    pageInfo.append(''.join(pageText))
     text.append(pageInfo)
-    
+
+
 def extractFromLinks(links):
-    #Obtain each link and extractText from it
+    # Obtain each link and extractText from it
     text = list()
     
-    #cycle through the links array
+    # cycle through the links array
     for link in links:
         extractText(link, text)
         
     return text
-    
