@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from dateutil import parser
 import urllib
 
 
@@ -12,9 +13,11 @@ def extractText(url, text):
         content = soup.find("div", {"id" : "articleText"}).stripped_strings
     except AttributeError:
         return
+    date = parser.parse(date)
+    formattedDate='%s/%s/%s' % (date.month, date.day, date.year)
     pageInfo = list()
     pageInfo.append(headline)
-    pageInfo.append(date)
+    pageInfo.append(formattedDate)
     pageText = list()
     for paragraph in content:
         pageText.append(paragraph.replace('\xa0', ' ').replace("\'", "'").replace('\u0101', ' '))
