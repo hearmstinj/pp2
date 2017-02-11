@@ -10,7 +10,7 @@ def build_df(path):
     numpy_array = df.as_matrix()
     return numpy_array
 
-data = build_df("aapl_information.csv")  # convert data to numpy array
+data = build_df("../CSV/aapl_information.csv")  # convert data to numpy array
 features = data[:, 2:]  # Extract Features/ Training data
 labels = data[:, 1:2]  # Extract Labels
 # define words to be ignored in a file
@@ -31,5 +31,5 @@ print(words_used)
 #print(doc1)
 print(sorted(words_used, key=lambda t: t[1] * -1))
 print(B[5460], B[1946], B[10559])
-print(len(V))
-#print(V)
+print(V)
+print(len(B))

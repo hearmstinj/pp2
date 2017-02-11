@@ -27,13 +27,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextWriter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TextWriter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scrape/TextWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
               <folding>
-                <marker date="1486804234388" expanded="true" signature="42:342" ph="..." />
+                <marker date="1486804955772" expanded="true" signature="42:228" ph="..." />
               </folding>
             </state>
           </provider>
@@ -42,8 +42,8 @@
       <file leaf-file-name="aapl_information.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scrape/aapl_information.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="992" lean-forward="false" selection-start-line="0" selection-start-column="419" selection-end-line="0" selection-end-column="992" />
+            <state relative-caret-position="68">
+              <caret line="0" column="992" lean-forward="false" selection-start-line="0" selection-start-column="992" selection-end-line="0" selection-end-column="992" />
               <folding />
             </state>
           </provider>
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state relative-caret-position="322">
+              <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -106,8 +106,8 @@
         <option value="$PROJECT_DIR$/Scrape/TextExtractor.py" />
         <option value="$PROJECT_DIR$/TFIDF/aapl_information.csv" />
         <option value="$PROJECT_DIR$/Scrape/PriceExtractor.py" />
-        <option value="$PROJECT_DIR$/TFIDF/tfidf.py" />
         <option value="$PROJECT_DIR$/Scrape/TextWriter.py" />
+        <option value="$PROJECT_DIR$/TFIDF/tfidf.py" />
       </list>
     </option>
   </component>
@@ -209,7 +209,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/ProjectPhase2" />
   </component>
-  <component name="RunManager" selected="Python.DataScraper">
+  <component name="RunManager" selected="Python.tfidf">
     <configuration default="false" name="PriceExtractor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -402,8 +402,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.DataScraper" />
-        <item index="1" class="java.lang.String" itemvalue="Python.tfidf" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tfidf" />
+        <item index="1" class="java.lang.String" itemvalue="Python.DataScraper" />
         <item index="2" class="java.lang.String" itemvalue="Python.PriceExtractor" />
       </list>
     </recent_temporary>
@@ -422,7 +422,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -467,7 +467,7 @@
         <state relative-caret-position="119">
           <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding>
-            <marker date="1486804234388" expanded="true" signature="42:342" ph="..." />
+            <marker date="1486804955772" expanded="true" signature="42:228" ph="..." />
           </folding>
         </state>
       </provider>
@@ -538,29 +538,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scrape/aapl_information.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="992" lean-forward="false" selection-start-line="0" selection-start-column="419" selection-end-line="0" selection-end-column="992" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,12 +576,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scrape/aapl_information.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="0" column="992" lean-forward="false" selection-start-line="0" selection-start-column="992" selection-end-line="0" selection-end-column="992" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/TextWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
           <folding>
-            <marker date="1486804234388" expanded="true" signature="42:342" ph="..." />
+            <marker date="1486804955772" expanded="true" signature="42:228" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="31" column="44" lean-forward="true" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
