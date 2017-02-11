@@ -31,5 +31,5 @@ print(words_used)
 #print(doc1)
 print(sorted(words_used, key=lambda t: t[1] * -1))
 print(B[5460], B[1946], B[10559])
-
+print(len(V))
 #print(V)
