@@ -1,10 +1,13 @@
 import pandas as pd
 import sklearn as sk
 import random as rd
+from sklearn.ensemble import RandomForestClassifier
 import csv
 from sklearn import feature_extraction
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import Perceptron
+from sklearn.svm import SVC
 
 
 def build_df(path):
@@ -46,3 +49,12 @@ gnb = GaussianNB()
 #mnb = MultinomialNB()
 y_pred = gnb.fit(V[:272], a[:272]).predict(V[272:])
 print("Number of mislabelled points out of a total %d points is %d" % (len(V), (a[272:] != y_pred).sum()))
+rnb = RandomForestClassifier(n_estimators=100)
+rfpred = rnb.fit(V[:272], a[:272]).predict(V[272:])
+print("Number of mislabelled points out of a total %d points is %d" % (len(V), (a[272:] != rfpred).sum()))
+ptron = Perceptron(n_iter=50)
+ppred = ptron.fit(V[:272], a[:272]).predict(V[272:])
+print("Number of mislabelled points out of a total %d points is %d" % (len(V), (a[272:] != ppred).sum()))
+svc = SVC()
+spred = svc.fit(V[:272], a[:272]).predict(V[272:])
+print("Number of mislabelled points out of a total %d points is %d" % (len(V), (a[272:] != spred).sum()))
