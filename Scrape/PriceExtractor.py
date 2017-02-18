@@ -7,7 +7,7 @@ with open('../CSV/HistoricalQuotes.csv', 'r') as csvfile:
     with open('../CSV/QuoteMovements.csv', 'w') as output:
         reader = csv.reader(csvfile, delimiter=',')
         writer = csv.writer(output)
-        for row in reader:
+        for row in reversed(list(reader)):
             if i > 0:
                 current = float(row[1])
                 movement = current-prev
