@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 from collections import Counter
 
+
 def build(path, separator):
     content = pd.read_csv(path, header=None, sep=separator)
     return content.as_matrix()

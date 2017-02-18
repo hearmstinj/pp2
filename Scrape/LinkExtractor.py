@@ -22,7 +22,10 @@ def extract(baseURL, nodeURL):
     url = nodeURL
     
     #obtain the last page number to navigate to and open the main news headlines page
-    page = urllib.request.urlopen(baseURL)
+    try:
+        page = urllib.request.urlopen(baseURL)
+    except urllib.error.HTTPError:
+        extract(baseURL, nodeURL)
     info = BeautifulSoup(page, "lxml")
     lastNumber = int(info.find("a", {"id" : "quotes_content_left_lb_LastPage"})['href'][-2:])
     

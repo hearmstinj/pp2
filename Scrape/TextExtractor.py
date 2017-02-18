@@ -5,7 +5,11 @@ import urllib
 
 def extractText(url, text):
     # extract the text from the link and append it to text
-    page = urllib.request.urlopen(url).read()
+    try:
+        page = urllib.request.urlopen(url).read()
+    except urllib.error.HTTPError:
+        extractText(url, text)
+
     soup = BeautifulSoup(page, 'lxml')
     try:
         headline = soup.find("h1", {"class" : "article-header"}).text
@@ -32,6 +36,9 @@ def extractFromLinks(links):
     
     # cycle through the links array
     for link in links:
-        extractText(link, text)
+        try:
+            extractText(link, text)
+        except urllib.error.HTTPError:
+            continue
         
     return text

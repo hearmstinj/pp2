@@ -8,6 +8,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC
+from collections import Counter
 
 
 def build_df(path):
@@ -49,15 +50,32 @@ a = atz[0][0].split(',')
 # GaussianNB part
 
 gnb = GaussianNB()
-#mnb = MultinomialNB()
-y_pred = gnb.fit(V[:272], a[:272]).predict(V[272:])
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[272:] != y_pred).sum()))
+y_pred = gnb.fit(V[:271], a[:271]).predict(V[271:])
+print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[271:] != y_pred).sum()))
 rnb = RandomForestClassifier(n_estimators=100)
-rfpred = rnb.fit(V[:272], a[:272]).predict(V[272:])
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[272:] != rfpred).sum()))
+rfpred = rnb.fit(V[:271], a[:271]).predict(V[271:])
+print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[271:] != rfpred).sum()))
 ptron = Perceptron(n_iter=50)
-ppred = ptron.fit(V[:272], a[:272]).predict(V[272:])
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[272:] != ppred).sum()))
+ppred = ptron.fit(V[:271], a[:271]).predict(V[271:])
+print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[271:] != ppred).sum()))
 svc = SVC()
-spred = svc.fit(V[:272], a[:272]).predict(V[272:])
-print("Number of mislabelled points out of a total %d points is %d Support Vector Machines" % (len(V), (a[272:] != spred).sum()))
+spred = svc.fit(V[:271], a[:271]).predict(V[271:])
+print("Number of mislabelled points out of a total %d points is %d Support Vector Machines" % (len(V), (a[271:] != spred).sum()))
+
+# trying out some mapping stuff
+print(y_pred)
+
+current_date = labels[271][0]
+sum = 0
+prev_index = 271
+for x in range(271, 371):
+    if labels[x][0] != current_date:
+        val = 1 if y_pred[prev_index - 271:x - 271].tolist().count(1) >= y_pred[prev_index - 271:x - 271].tolist().count(0) else 0
+        for y in range(prev_index, x):
+            y_pred[y - 271] = val
+        prev_index = x
+
+print(y_pred)
+print(len(a))
+print(len(a[271:]))
+print(a[271:])
