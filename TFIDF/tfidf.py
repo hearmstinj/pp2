@@ -63,19 +63,14 @@ spred = svc.fit(V[:271], a[:271]).predict(V[271:])
 print("Number of mislabelled points out of a total %d points is %d Support Vector Machines" % (len(V), (a[271:] != spred).sum()))
 
 # trying out some mapping stuff
-print(y_pred)
 
 current_date = labels[271][0]
-sum = 0
 prev_index = 271
 for x in range(271, 371):
-    if labels[x][0] != current_date:
+    if labels[x][0] != labels[prev_index][0]:
         val = 1 if y_pred[prev_index - 271:x - 271].tolist().count(1) >= y_pred[prev_index - 271:x - 271].tolist().count(0) else 0
         for y in range(prev_index, x):
             y_pred[y - 271] = val
         prev_index = x
 
-print(y_pred)
-print(len(a))
-print(len(a[271:]))
-print(a[271:])
+

@@ -6,9 +6,9 @@ import urllib
 def extractText(url, text):
     # extract the text from the link and append it to text
     try:
-        page = urllib.request.urlopen(url).read()
+        page = urllib.request.urlopen(url, 1000).read()
     except urllib.error.HTTPError:
-        extractText(url, text)
+        return
 
     soup = BeautifulSoup(page, 'lxml')
     try:
