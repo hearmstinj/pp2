@@ -45,26 +45,25 @@ print(len(B))'''
 # print(a)
 atz = list(build_df("../CSV/labels.csv"))
 a = atz[0][0].split(',')
-# print(a)
-
-# GaussianNB part
 
 gnb = GaussianNB()
 y_pred = gnb.fit(V[:271], a[:271]).predict(V[271:])
 print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[271:] != y_pred).sum()))
+
 rnb = RandomForestClassifier(n_estimators=100)
 rfpred = rnb.fit(V[:271], a[:271]).predict(V[271:])
 print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[271:] != rfpred).sum()))
+
 ptron = Perceptron(n_iter=50)
 ppred = ptron.fit(V[:271], a[:271]).predict(V[271:])
 print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[271:] != ppred).sum()))
+
 svc = SVC()
 spred = svc.fit(V[:271], a[:271]).predict(V[271:])
-print("Number of mislabelled points out of a total %d points is %d Support Vector Machines" % (len(V), (a[271:] != spred).sum()))
+print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[271:] != spred).sum()))
 
 # trying out some mapping stuff
 
-current_date = labels[271][0]
 prev_index = 271
 for x in range(271, 371):
     if labels[x][0] != labels[prev_index][0]:

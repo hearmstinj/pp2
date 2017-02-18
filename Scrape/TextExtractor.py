@@ -6,7 +6,7 @@ import urllib
 def extractText(url, text):
     # extract the text from the link and append it to text
     try:
-        page = urllib.request.urlopen(url, 1000).read()
+        page = urllib.request.urlopen(url).read()
     except urllib.error.HTTPError:
         return
 
