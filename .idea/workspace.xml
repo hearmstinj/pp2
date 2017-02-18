@@ -18,11 +18,21 @@
       <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="29" lean-forward="false" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+            <state relative-caret-position="646">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenerateMovements.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,21 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aapl_information.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
+      <file leaf-file-name="HistoricalQuotes.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSV/HistoricalQuotes.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="88" column="1946" lean-forward="false" selection-start-line="88" selection-start-column="1946" selection-end-line="88" selection-end-column="1946" />
+            <state relative-caret-position="68">
+              <caret line="4" column="47" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HistoricalQuotes.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CSV/HistoricalQuotes.csv">
+      <file leaf-file-name="QuoteMovements.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSV/QuoteMovements.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="901">
+              <caret line="53" column="62" lean-forward="true" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aapl_information.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="656" column="4457" lean-forward="true" selection-start-line="656" selection-start-column="4457" selection-end-line="656" selection-end-column="4457" />
               <folding />
             </state>
           </provider>
@@ -60,8 +80,8 @@
       <file leaf-file-name="CalculateMovements.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TFIDF/CalculateMovements.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -98,9 +118,11 @@
         <option value="$PROJECT_DIR$/TFIDF/aapl_information.csv" />
         <option value="$PROJECT_DIR$/Scrape/TextWriter.py" />
         <option value="$PROJECT_DIR$/TFIDF/tfidf.py" />
-        <option value="$PROJECT_DIR$/CSV/HistoricalQuotes.csv" />
-        <option value="$PROJECT_DIR$/TFIDF/CalculateMovements.py" />
         <option value="$PROJECT_DIR$/Scrape/PriceExtractor.py" />
+        <option value="$PROJECT_DIR$/TFIDF/CalculateMovements.py" />
+        <option value="$PROJECT_DIR$/CSV/HistoricalQuotes.csv" />
+        <option value="$PROJECT_DIR$/CSV/QuoteMovements.csv" />
+        <option value="$PROJECT_DIR$/TFIDF/GenerateMovements.py" />
       </list>
     </option>
   </component>
@@ -202,7 +224,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/ProjectPhase2" />
   </component>
-  <component name="RunManager" selected="Python.PriceExtractor">
+  <component name="RunManager" selected="Python.GenerateMovements">
     <configuration default="false" name="PriceExtractor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -216,23 +238,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pp2" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scrape/PriceExtractor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="DataScraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scrape" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="pp2" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scrape/DataScraper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -284,6 +289,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pp2" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TFIDF/CalculateMovements.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GenerateMovements" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TFIDF" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="pp2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TFIDF/GenerateMovements.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -424,18 +446,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.PriceExtractor" />
-      <item index="1" class="java.lang.String" itemvalue="Python.DataScraper" />
-      <item index="2" class="java.lang.String" itemvalue="Python.tfidf" />
-      <item index="3" class="java.lang.String" itemvalue="Python.lem" />
-      <item index="4" class="java.lang.String" itemvalue="Python.CalculateMovements" />
+      <item index="1" class="java.lang.String" itemvalue="Python.tfidf" />
+      <item index="2" class="java.lang.String" itemvalue="Python.lem" />
+      <item index="3" class="java.lang.String" itemvalue="Python.CalculateMovements" />
+      <item index="4" class="java.lang.String" itemvalue="Python.GenerateMovements" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.PriceExtractor" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CalculateMovements" />
-        <item index="2" class="java.lang.String" itemvalue="Python.lem" />
-        <item index="3" class="java.lang.String" itemvalue="Python.tfidf" />
-        <item index="4" class="java.lang.String" itemvalue="Python.DataScraper" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GenerateMovements" />
+        <item index="1" class="java.lang.String" itemvalue="Python.PriceExtractor" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CalculateMovements" />
+        <item index="3" class="java.lang.String" itemvalue="Python.lem" />
+        <item index="4" class="java.lang.String" itemvalue="Python.tfidf" />
       </list>
     </recent_temporary>
   </component>
@@ -660,20 +682,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="29" lean-forward="false" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TFIDF/CalculateMovements.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        <state relative-caret-position="255">
+          <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -690,16 +702,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="88" column="1946" lean-forward="false" selection-start-line="88" selection-start-column="1946" selection-end-line="88" selection-end-column="1946" />
+        <state relative-caret-position="133">
+          <caret line="656" column="4457" lean-forward="true" selection-start-line="656" selection-start-column="4457" selection-end-line="656" selection-end-column="4457" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CSV/HistoricalQuotes.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="47" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSV/QuoteMovements.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="62" lean-forward="true" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding />
         </state>
       </provider>
