@@ -45,32 +45,32 @@ print(len(B))'''
 # print(a)
 atz = list(build_df("../CSV/labels.csv"))
 a = atz[0][0].split(',')
-# print(a[:171])
+# print(a[:301])
 
 gnb = GaussianNB()
-y_pred = gnb.fit(V[:171], a[:171]).predict(V[171:])
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[171:] != y_pred).sum()))
+y_pred = gnb.fit(V[:301], a[:301]).predict(V[301:])
+print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred).sum()))
 
 rnb = RandomForestClassifier(n_estimators=100)
-rfpred = rnb.fit(V[:171], a[:171]).predict(V[171:])
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[171:] != rfpred).sum()))
+rfpred = rnb.fit(V[:301], a[:301]).predict(V[301:])
+print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred).sum()))
 
 ptron = Perceptron(n_iter=50)
-ppred = ptron.fit(V[:171], a[:171]).predict(V[171:])
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[171:] != ppred).sum()))
+ppred = ptron.fit(V[:301], a[:301]).predict(V[301:])
+print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred).sum()))
 
 svc = SVC()
-spred = svc.fit(V[:171], a[:171]).predict(V[171:])
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[171:] != spred).sum()))
+spred = svc.fit(V[:301], a[:301]).predict(V[301:])
+print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred).sum()))
 
 # trying out some mapping stuff
 
-prev_index = 171
-for x in range(171, 371):
+prev_index = 301
+for x in range(301, 371):
     if labels[x][0] != labels[prev_index][0]:
-        val = 1 if y_pred[prev_index - 171:x - 171].tolist().count(1) >= y_pred[prev_index - 171:x - 171].tolist().count(0) else 0
+        val = 1 if y_pred[prev_index - 301:x - 301].tolist().count(1) >= y_pred[prev_index - 301:x - 301].tolist().count(0) else 0
         for y in range(prev_index, x):
-            y_pred[y - 171] = val
+            y_pred[y - 301] = val
         prev_index = x
 
 
