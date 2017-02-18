@@ -1,13 +1,19 @@
 import csv
 
 
-i = 1
-#  change the path of historical data downloaded .
-with open("../CSV/HistoricalQuotes.csv", "r") as source:
-    rdr = csv.reader(source)
-    with open("../CSV/HistoricalPrices", "w", newline='') as HistoricalPrices:
-        wtr = csv.writer(HistoricalPrices)
-        for r in rdr:
-            if i > 2:
-                wtr.writerow((r[0], r[1]))
+prev = 0
+i = 0
+with open('../CSV/HistoricalQuotes.csv', 'r') as csvfile:
+    with open('../CSV/HistoricalQuotes.csv', 'w') as output:
+        reader = csv.reader(csvfile, delimiter=',')
+        writer = csv.writer(output)
+        for row in reader:
+            if i > 0:
+                current = float(row[1])
+                movement = current-prev
+                prev = current
+                if movement > 0:
+                    writer.writerow(row + [1])
+                else:
+                    writer.writerow(row + [0])
             i += 1
