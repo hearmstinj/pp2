@@ -15,11 +15,11 @@ daily_movements = dict()
 for row in movement_data:
     daily_movements[row[0]] = row[-1]
 
-# print(a)
 labels = list()
 for row in article_data:
     split_values = row[1].split('/')
-    date = split_values[2] + "/0" + split_values[0] + "/" + split_values[1]
+    day = "0" + split_values[1] if int(split_values[1]) < 10 else split_values[1]
+    date = split_values[2] + "/0" + split_values[0] + "/" + day
     label = 1 if date not in daily_movements.keys() else daily_movements[date]
     labels.append(label)
 

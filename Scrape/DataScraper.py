@@ -19,4 +19,4 @@ def scrape(symbols):
         TextWriter.writeToCSV(text, symbol)
         print("Finished writing file.")
             
-scrape(['amzn'])
+scrape(['msft', 'tsla', 'csco'])

@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="206">
+              <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -27,21 +27,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="amzn_information.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CSV/amzn_information.csv">
+      <file leaf-file-name="labels.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CSV/labels.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="673" column="0" lean-forward="true" selection-start-line="673" selection-start-column="0" selection-end-line="674" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="aapl_information.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
+      <file leaf-file-name="PriceExtractor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170034">
-              <caret line="496" column="4980" lean-forward="true" selection-start-line="496" selection-start-column="4980" selection-end-line="498" selection-end-column="113" />
+            <state relative-caret-position="102">
+              <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="GenerateMovements.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="170">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -63,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/Scrape/DataScraper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -91,38 +91,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalculateMovements.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TFIDF/CalculateMovements.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextWriter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scrape/TextWriter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PriceExtractor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -135,9 +103,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>272</find>
+      <find>271</find>
     </findStrings>
     <replaceStrings>
       <replace>271</replace>
+      <replace>171</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -152,10 +122,10 @@
         <option value="$PROJECT_DIR$/TFIDF/CalculateMovements.py" />
         <option value="$PROJECT_DIR$/CSV/HistoricalQuotes.csv" />
         <option value="$PROJECT_DIR$/CSV/QuoteMovements.csv" />
-        <option value="$PROJECT_DIR$/TFIDF/GenerateMovements.py" />
-        <option value="$PROJECT_DIR$/Scrape/DataScraper.py" />
         <option value="$PROJECT_DIR$/Scrape/LinkExtractor.py" />
         <option value="$PROJECT_DIR$/Scrape/TextExtractor.py" />
+        <option value="$PROJECT_DIR$/Scrape/DataScraper.py" />
+        <option value="$PROJECT_DIR$/TFIDF/GenerateMovements.py" />
         <option value="$PROJECT_DIR$/TFIDF/tfidf.py" />
       </list>
     </option>
@@ -488,8 +458,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.tfidf" />
-        <item index="1" class="java.lang.String" itemvalue="Python.DataScraper" />
-        <item index="2" class="java.lang.String" itemvalue="Python.GenerateMovements" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GenerateMovements" />
+        <item index="2" class="java.lang.String" itemvalue="Python.DataScraper" />
         <item index="3" class="java.lang.String" itemvalue="Python.PriceExtractor" />
         <item index="4" class="java.lang.String" itemvalue="Python.CalculateMovements" />
       </list>
@@ -695,26 +665,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CSV/QuoteMovements.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="62" lean-forward="true" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CSV/HistoricalQuotes.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="61" lean-forward="true" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSV/labels.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -737,32 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170034">
-          <caret line="496" column="4980" lean-forward="true" selection-start-line="496" selection-start-column="4980" selection-end-line="498" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/TextWriter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -779,26 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scrape/DataScraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/TextExtractor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -812,6 +720,68 @@
         <state relative-caret-position="1073">
           <caret line="673" column="0" lean-forward="true" selection-start-line="673" selection-start-column="0" selection-end-line="674" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrape/DataScraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSV/QuoteMovements.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="62" lean-forward="true" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSV/aapl_information.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169728">
+          <caret line="496" column="4980" lean-forward="true" selection-start-line="496" selection-start-column="4980" selection-end-line="498" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CSV/labels.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
