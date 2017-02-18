@@ -15,13 +15,15 @@ def writefile(movements):
         writer.writerows(movements)
 
 data = readfile("../CSV/HistoricalQuotes.csv")
-
+data = data.tolist()
 movement = list()
 
-print(data[0])
-for it in range(1, len(data) - 1):
-    movement[data[it][0]] = 1 if data[it][2] > data[it + 1][2] else 0
+data = sorted(data)
+print(data)
+'''for it in range(1, len(data) - 1):
+    movement[data[it][0]] = 1 if data[it][2] > data[it + 1][2] else 0'''
 
-writefile(movement)
+print(data[:][0:4])
+# writefile(data)
 
 
