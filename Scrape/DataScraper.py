@@ -8,7 +8,7 @@ def scrape(symbols):
         nodeURL = baseURL + "?page="
         
         #call function to scrape all internal links and return a list
-        links = LinkExtractor.extract(baseURL, nodeURL)
+        links = LinkExtractor.extract(baseURL, nodeURL, symbol)
         print("Finished loading links.")
 
         #call function to go to each link and extract data
@@ -19,4 +19,4 @@ def scrape(symbols):
         TextWriter.writeToCSV(text, symbol)
         print("Finished writing file.")
             
-scrape(['msft', 'tsla', 'csco'])
+scrape(['amzn'])

@@ -2,26 +2,34 @@ from bs4 import BeautifulSoup
 import urllib
 from urllib import request
 import time
+import csv
+import pandas as pd
 
-def extractPage(url, links):
+
+def extractPage(url, links, lastlink):
     
-    #set a timeout to overcome http request errors
+    # set a timeout to overcome http request errors
     time.sleep(0.2)
     cpage = urllib.request.urlopen(url)
 
     soup = BeautifulSoup(cpage, 'lxml')
     linkSet = soup.find_all("span", {"class" : "fontS14px"})
     
-    #only include internal links of nasdaq    
+    # only include internal links of nasdaq
     for span in linkSet:
+        if (span.a['href'] + "\n") == lastlink:
+            return 1
         if "nasdaq.com" in span.a['href']:
             links.append(span.a['href'])
-    
-def extract(baseURL, nodeURL):
+
+    return 0
+
+
+def extract(baseURL, nodeURL, symbol):
     
     url = nodeURL
     
-    #obtain the last page number to navigate to and open the main news headlines page
+    # obtain the last page number to navigate to and open the main news headlines page
     try:
         page = urllib.request.urlopen(baseURL)
     except urllib.error.HTTPError:
@@ -29,18 +37,39 @@ def extract(baseURL, nodeURL):
     info = BeautifulSoup(page, "lxml")
     lastNumber = int(info.find("a", {"id" : "quotes_content_left_lb_LastPage"})['href'][-2:])
     
-    #create a list to store the links
+    # create a list to store the links
     links = list()
+
+    # check which was the last link opened, if any
+    with open("../CSV/lastpagescanned.csv", "r") as file:
+        for row in file:
+            rowcontent = row.split(',')
+            if rowcontent[0] == symbol:
+                last_link_scanned = rowcontent[1]
     
-    #obtain the links from the first page
-    extractPage(baseURL, links)
-    
-    #Navigate through each page and append the links
-    for pageIterator in range(2, lastNumber):
+    # Navigate through each page and append the links
+    for pageIterator in range(1, lastNumber):
         try:
-            extractPage(url + str(pageIterator), links)
+            if pageIterator == 1:
+                flag = extractPage(url, links, last_link_scanned)
+            else:
+                flag = extractPage(url + str(pageIterator), links, last_link_scanned)
         except urllib.error.HTTPError:
             pageIterator -= 1
             continue
-
+        if flag == 0:
+            continue
+        else:
+            print("Here")
+            df = pd.read_csv("../CSV/lastpagescanned.csv", header=None)
+            print("After df")
+            mat = df.as_matrix()
+            for row in mat:
+                if row[0] == symbol:
+                    row[1] = links[0]
+            print("Somehow writing")
+            with open("../CSV/lastpagescanned.csv", "w") as file:
+                writer = csv.writer(file, delimiter=',')
+                writer.writerows(mat)
+            return links
     return links
