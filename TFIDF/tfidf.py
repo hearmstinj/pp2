@@ -65,7 +65,7 @@ def testingpart(si, pred):
         0) else 0
     for y in range(prev_index, x):
         pred[y - si] = val
-    return y_pred
+    return pred
 
 gnb = GaussianNB()
 y_pred = gnb.fit(V[:301], a[:301]).predict(V[301:])
