@@ -17,7 +17,8 @@ def build_df(path):
     numpy_array = df.as_matrix()
     return numpy_array
 
-data = build_df("../CSV/aapl_information.csv")  # convert data to numpy array
+data1 = build_df("../CSV/aapl_information.csv")  # convert data to numpy array
+data = data1[::-1, :]
 features = data[:, 2:]  # Extract Features/ Training data
 labels = data[:, 1:2]  # Extract Labels
 # define words to be ignored in a file
@@ -47,13 +48,14 @@ print(len(B))'''
 # IMPORTANT MUST READ
 # FIRST RUN DATASCRAPER.PY -> RUN PRICE EXTRACTOR.PY -> RUN GENERATEMOVEMENTS.PY -> RUN TFIDF.PY
 atz = list(build_df("../CSV/labels.csv"))
-a = atz[0][0].split(',')
+a1 = atz[0][0].split(',')
+a = a1[::-1]
 # print(a[:301])
 
 
 def testingpart(si, pred):
     prev_index = si
-    for x in range(si, 371):
+    for x in range(si, 581):
         if labels[x][0] != labels[prev_index][0]:
             val = 1 if pred[prev_index - si:x - si].tolist().count(1) >= pred[prev_index - si:x - si].tolist().count(0) else 0
             for y in range(prev_index, x):
@@ -63,7 +65,6 @@ def testingpart(si, pred):
         0) else 0
     for y in range(prev_index, x):
         pred[y - si] = val
-
     return y_pred
 
 gnb = GaussianNB()
