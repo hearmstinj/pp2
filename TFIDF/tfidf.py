@@ -54,15 +54,15 @@ def testing_part(start_index, y_pred):
     prev_index = start_index
     for x in range(prev_index, 371):
         if labels[x][0] != labels[prev_index][0]:
-            val = 1 if y_pred[prev_index - start_index:x - start_index].tolist().count(1) >= y_pred[prev_index - start_index:x - start_index].tolist().count(0) else 0
+            val = 1 if y_pred[prev_index-start_index:x-start_index].tolist().count(1) >= y_pred[prev_index-start_index:x-start_index].tolist().count(0) else 0
             for y in range(prev_index, x):
                 y_pred[y - prev_index] = val
             start_index = prev_index
             prev_index = x
+            #print(start_index,prev_index)
     return y_pred   
 
 gnb = GaussianNB()
-<<<<<<< HEAD
 ypred = gnb.fit(V[:271], a[:271]).predict(V[271:])
 nv_correct_pred = testing_part(271, ypred)
 print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[271:] != nv_correct_pred).sum()))
@@ -81,31 +81,5 @@ svc = SVC()
 spred = svc.fit(V[:271], a[:271]).predict(V[271:])
 svm_correct_pred = testing_part(271, spred)
 print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[271:] != svm_correct_pred).sum()))
-=======
-y_pred = gnb.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred).sum()))
-
-rnb = RandomForestClassifier(n_estimators=100)
-rfpred = rnb.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred).sum()))
-
-ptron = Perceptron(n_iter=50)
-ppred = ptron.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred).sum()))
-
-svc = SVC()
-spred = svc.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred).sum()))
-
-# trying out some mapping stuff
-
-prev_index = 301
-for x in range(301, 371):
-    if labels[x][0] != labels[prev_index][0]:
-        val = 1 if y_pred[prev_index - 301:x - 301].tolist().count(1) >= y_pred[prev_index - 301:x - 301].tolist().count(0) else 0
-        for y in range(prev_index, x):
-            y_pred[y - 301] = val
-        prev_index = x
->>>>>>> f559976b8e68f4d947b11e2518ad967d3f2cdf88
 
 
