@@ -50,30 +50,48 @@ atz = list(build_df("../CSV/labels.csv"))
 a = atz[0][0].split(',')
 # print(a[:301])
 
+
+def testingpart(si, y_pred):
+    prev_index = si
+    for x in range(si, 371):
+        if labels[x][0] != labels[prev_index][0]:
+            val = 1 if y_pred[prev_index - si:x - si].tolist().count(1) >= y_pred[prev_index - si:x - si].tolist().count(0) else 0
+            for y in range(prev_index, x):
+                y_pred[y - si] = val
+            prev_index = x
+    val = 1 if y_pred[prev_index - si:x - si].tolist().count(1) >= y_pred[prev_index - si:x - si].tolist().count(
+        0) else 0
+    for y in range(prev_index, x):
+        y_pred[y - si] = val
+
+    return y_pred
+
 gnb = GaussianNB()
 y_pred = gnb.fit(V[:301], a[:301]).predict(V[301:])
 print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred).sum()))
+y_pred_f = testingpart(301, y_pred)
+print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred_f).sum()))
 
 rnb = RandomForestClassifier(n_estimators=100)
 rfpred = rnb.fit(V[:301], a[:301]).predict(V[301:])
 print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred).sum()))
+rfpred_f = testingpart(301, rfpred)
+print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred_f).sum()))
 
 ptron = Perceptron(n_iter=50)
 ppred = ptron.fit(V[:301], a[:301]).predict(V[301:])
 print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred).sum()))
+ppred_f = testingpart(301, ppred)
+print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred_f).sum()))
 
 svc = SVC()
 spred = svc.fit(V[:301], a[:301]).predict(V[301:])
 print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred).sum()))
+spred_f = testingpart(301, spred)
+print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred_f).sum()))
 
-# trying out some mapping stuff
 
-prev_index = 301
-for x in range(301, 371):
-    if labels[x][0] != labels[prev_index][0]:
-        val = 1 if y_pred[prev_index - 301:x - 301].tolist().count(1) >= y_pred[prev_index - 301:x - 301].tolist().count(0) else 0
-        for y in range(prev_index, x):
-            y_pred[y - 301] = val
-        prev_index = x
+
+
 
 
