@@ -51,18 +51,18 @@ a = atz[0][0].split(',')
 # print(a[:301])
 
 
-def testingpart(si, y_pred):
+def testingpart(si, pred):
     prev_index = si
     for x in range(si, 371):
         if labels[x][0] != labels[prev_index][0]:
-            val = 1 if y_pred[prev_index - si:x - si].tolist().count(1) >= y_pred[prev_index - si:x - si].tolist().count(0) else 0
+            val = 1 if pred[prev_index - si:x - si].tolist().count(1) >= pred[prev_index - si:x - si].tolist().count(0) else 0
             for y in range(prev_index, x):
-                y_pred[y - si] = val
+                pred[y - si] = val
             prev_index = x
-    val = 1 if y_pred[prev_index - si:x - si].tolist().count(1) >= y_pred[prev_index - si:x - si].tolist().count(
+    val = 1 if pred[prev_index - si:x - si].tolist().count(1) >= pred[prev_index - si:x - si].tolist().count(
         0) else 0
     for y in range(prev_index, x):
-        y_pred[y - si] = val
+        pred[y - si] = val
 
     return y_pred
 
