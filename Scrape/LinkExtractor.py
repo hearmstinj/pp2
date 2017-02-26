@@ -60,14 +60,12 @@ def extract(baseURL, nodeURL, symbol):
         if flag == 0:
             continue
         else:
-            print("Here")
             df = pd.read_csv("../CSV/lastpagescanned.csv", header=None)
-            print("After df")
             mat = df.as_matrix()
             for row in mat:
                 if row[0] == symbol:
-                    row[1] = links[0]
-            print("Somehow writing")
+                    if len(links) > 1:
+                        row[1] = links[0]
             with open("../CSV/lastpagescanned.csv", "w") as file:
                 writer = csv.writer(file, delimiter=',')
                 writer.writerows(mat)
