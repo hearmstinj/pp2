@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>No Boot-strap trial</title>
+        <script src="jQuery/jquery-1.12.0.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <p>Hey!</p>
+        </div>
+
+        <script>
+            $.getScript("statcounter.js");
+            /*$(document).ready(function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "ipgetting.php", true);
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                //document.write(xhr.responseText);
+            }
+        }
+
+        xhr.send();
+    })*/
+        </script>
+
+        <script>
+            window.onbeforeunload = function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "../../phpstuff/endtime.php", false);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        // do nothing
+                        alert("lol");
+                    }
+                }
+                alert("lol");
+                xhr.send();
+            }
+        </script>
+    </body>
+</html>

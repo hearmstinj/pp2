@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../statisticsdashboard/js/plugins/morris/raphael.min.js"></script>
+    <script src="../statisticsdashboard/js/jquery.js"></script>
+    <script src="../statisticsdashboard/js/plugins/morris/morris.min.js"></script>
+    <meta charset=utf-8 />
+    <title>Morris.js Donut Chart Example</title>
+</head>
+
+<body>
+    <div id="donut1"></div>
+
+    <script>
+        Morris.Donut({
+            element: 'donut1',
+            data: [{
+                label: "Download Sales",
+                value: 12
+            }, {
+                label: "In-Store Sales",
+                value: 30
+            }, {
+                label: "Mail-Order Sales",
+                value: 35
+            }]
+        });
+    </script>
+
+</body>
+
+</html>

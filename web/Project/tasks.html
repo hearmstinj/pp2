@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tasks</title>
+</head>
+
+<body>
+    <div>
+        <form action="tasks.php" method="get" target="_blank" onsubmit="try {return window.confirm(&quot;You are submitting information to an external page.\nAre you sure?&quot;);} catch (e) {return false;}">
+            <input name="title" type="text">
+            <br>
+            <br> Date:
+            <input type="date" name="date">
+            <br>
+            <br> To:
+            <input type="time" name="totime"> From:
+            <input name="fromtime" type="time">
+            <br>
+            <br> Choose Priority of your task:
+            <br>
+            <input type="radio" name="priority">High
+            <input type="radio" name="priority">Medium
+            <input type="radio" name="priority">Low
+
+            <br>
+            <br>
+            <input type="submit" value="ADD">
+        </form>
+    </div>
+</body>
+
+</html>

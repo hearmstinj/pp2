@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Statistics</title>
+        <link rel="icon" type="image/png" href="images/sherlock_black.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="images/sherlock_black.png" sizes="32x32">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/pageDefaults.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="bootstrap336/css/bootstrap.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="jQuery/jquery-1.12.0.min.js"></script>
+        <script src="bootstrap336/js/bootstrap.min.js"></script>
+
+        <style>
+            /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+            .row.content {
+                height: 550px;
+            }
+            /* Set gray background color and 100% height */
+            .sidenav {
+                background-color: #474e5d;
+                height: 700%;
+            }
+            /* On small screens, set height to 'auto' for the grid */
+            @media screen and (max-width: 767px) {
+                .row.content {
+                    height: auto;
+                }
+            }
+            h2 {
+                font-size: 20px;
+                color: #ffffff;
+                text-align: center;
+                font-family: Montserrat, sans-serif;
+            }
+            .temp {
+                height: 250px;
+            }
+            span {
+                color: #1abc9c;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-inverse visible-xs">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">SHERLOCK ANALYTICS</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav sidebarText">
+                        <li>
+                            <a href="#">Event Tracking</a>
+                        </li>
+                        <li>
+                            <a href="#">Audience Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#">Conversion Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#">Performance Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#">Summary</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-3 sidenav hidden-xs" style="position:fixed; float:left; z-index: 9999">
+                    <h2 style="letter-spacing: 2px; ">S<span>H</span>E<span>R</span>LOC<span>K</span>
+                        ANALYTICS</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <hr style="color: #a5a6f7"/>
+                        <li>
+                            <a href="#section1">Event Tracking</a>
+                        </li>
+                        <li>
+                            <a href="#section2">Audience Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#section3">Conversion Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#section4">Performance Reporting</a>
+                        </li>
+                        <li>
+                            <a href="#section5">Summary</a>
+                        </li>
+                        <hr style="color: #a5a6f7"/>
+                        <li class="logoutBtnDef">
+                            <a href="#logOut">Log Out</a>
+                        </li>
+                    </ul>
+                    <br>
+                </div>
+                <br>
+
+                <div class="col-sm-9" id="section1" style="margin-left: 335px">
+                    <div class="well temp">
+                        <h4>Event Tracking</h4>
+                        <p>Some text..</p>
+                    </div>
+                    <div class="row" id="section2">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Audience Reporting</h4>
+                                <p>1 Million</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Pages</h4>
+                                <p>100 Million</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Sessions</h4>
+                                <p>10 Million</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>Bounce</h4>
+                                <p>30%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="section3">
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <p>Text</p>
+                                <p>Text</p>
+                                <p>Text</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <p>Text</p>
+                                <p>Text</p>
+                                <p>Text</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="well" id="lelid1" onload="showUser(this.value)">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="section4">
+                        <div class="col-sm-8">
+                            <div class="well">
+                                <p>Text</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <p>Text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="section5" style="margin-left: 320px">
+                <div class="col-sm-9">
+                    <div class="well">
+                        <a></a>
+                        <p>Graphical represention of the summary</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $.getScript('a.js');
+        </script>
+        <script>
+            window.onload = function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "../../phpstuff/tv.php", false);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        document.getElementById("lelid1").innerHTML = xhr.responseText;
+                    }
+                }
+                xhr.send();
+            }
+        </script>
+    </body>
+
+</html>
