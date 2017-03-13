@@ -65,7 +65,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id="temp" href="../Project/FrontEnd/RandomHTML/doc1.html" style="letter-spacing:2px">S<span>H</span>E<span>R</span>LOC<span>K</span> ANALYTICS</a>
+                <a class="navbar-brand" id="temp2" href="../Project/FrontEnd/RandomHTML/doc1.html" style="letter-spacing:2px">S<span>H</span>E<span>R</span>LOC<span>K</span> ANALYTICS</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -248,7 +248,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-users fa-5x"></i>
+                                        <i class="fa fa-apple fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge" id="tvntid1"></div>
@@ -270,7 +270,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-user fa-5x"></i>
+                                        <i class="fa fa-amazon fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge" id="uvc"></div>
@@ -292,7 +292,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-clock-o fa-5x"></i>
+                                        <i class="fa fa-windows fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge" id="avgsession"></div>
@@ -314,7 +314,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-flash fa-5x"></i>
+                                        <i class="fa fa-android fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge" id="dau"></div>
@@ -506,7 +506,7 @@
                                             <td align="center" id="sizelarge"></td>
 
                                         </tr>
-                                        </tbody>
+
                                     </table>
                                 </div>
                                 <!--<div class="text-right">
@@ -525,7 +525,7 @@
     </div>
     <!-- /#page-wrapper -->
 
-    </div>
+
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -568,6 +568,38 @@
                 window.location = "../Project/frontend/randomhtml/doc1.html";
             })
         })
+    </script>
+
+    <script>
+    $(document).ready(function(){
+        document.write("Hi");
+        $.ajax({
+            type: "GET",
+            url: "../../CSV/HistoricalQuotes.txt",
+            dataType: "text"
+        }).success(function(data) { alert("Hi");processData(data); })
+    });
+
+        function processData(allText) {
+            var recordNum = 6;
+            var allTextLines = allText.split(/\r\n|\n/);
+            var entries = allTextLines[0].split(",");
+            var lines = [];
+
+            for (var i=0; i<allTextLines.length; i++) {
+                var data = allTextLines[i].split(',');
+                if (data.length == headers.length) {
+
+                    var tarr = [];
+                    for (var j=0; j<headers.length; j++) {
+                        tarr.push(data[j]);
+                    }
+                    lines.push(tarr);
+                }
+            }
+            alert("Hi");
+            alert(lines[0]);
+        }
     </script>
 
     <script>
