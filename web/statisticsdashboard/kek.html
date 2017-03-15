@@ -571,14 +571,14 @@
     </script>
 
     <script>
-    $(document).ready(function(){
-        document.write("Hi");
-        $.ajax({
-            type: "GET",
-            url: "../../CSV/HistoricalQuotes.txt",
-            dataType: "text"
-        }).success(function(data) { alert("Hi");processData(data); })
-    });
+        $(document).ready(function(){
+            document.write("Hi");
+            $.ajax({
+                type: "GET",
+                url: "../../CSV/HistoricalQuotes.txt",
+                dataType: "text"
+            }).success(function(data) { alert("Hi");processData(data); })
+        });
 
         function processData(allText) {
             var recordNum = 6;

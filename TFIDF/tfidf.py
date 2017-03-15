@@ -50,7 +50,7 @@ print(len(B))'''
 atz = list(build_df("../CSV/labels.csv"))
 a1 = atz[0][0].split(',')
 a = a1[::-1]
-# print(a[:301])
+# print(a[:400])
 
 
 def testingpart(si, pred, ei):
@@ -69,28 +69,29 @@ def testingpart(si, pred, ei):
 
 ei = len(V)    
 gnb = GaussianNB()
-y_pred = gnb.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred).sum()))
-y_pred_f = testingpart(301, y_pred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[301:] != y_pred_f).sum()))
+y_pred = gnb.fit(V[:400], a[:400]).predict(V[400:])
+print(len(a[400:]), len(y_pred))
+print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[400:] != y_pred).sum()))
+y_pred_f = testingpart(400, y_pred, ei)
+print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[400:] != y_pred_f).sum()))
 
 rnb = RandomForestClassifier(n_estimators=100)
-rfpred = rnb.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred).sum()))
-rfpred_f = testingpart(301, rfpred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[301:] != rfpred_f).sum()))
+rfpred = rnb.fit(V[:400], a[:400]).predict(V[400:])
+print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[400:] != rfpred).sum()))
+rfpred_f = testingpart(400, rfpred, ei)
+print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[400:] != rfpred_f).sum()))
 
 ptron = Perceptron(n_iter=50)
-ppred = ptron.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred).sum()))
-ppred_f = testingpart(301, ppred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[301:] != ppred_f).sum()))
+ppred = ptron.fit(V[:400], a[:400]).predict(V[400:])
+print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[400:] != ppred).sum()))
+ppred_f = testingpart(400, ppred, ei)
+print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[400:] != ppred_f).sum()))
 
 svc = SVC()
-spred = svc.fit(V[:301], a[:301]).predict(V[301:])
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred).sum()))
-spred_f = testingpart(301, spred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[301:] != spred_f).sum()))
+spred = svc.fit(V[:400], a[:400]).predict(V[400:])
+print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[400:] != spred).sum()))
+spred_f = testingpart(400, spred, ei)
+print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[400:] != spred_f).sum()))
 
 
 
