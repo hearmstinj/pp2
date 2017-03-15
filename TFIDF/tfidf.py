@@ -78,28 +78,28 @@ def get_accuracies(p):
     print(len(a[p:]), len(y_pred))
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred).sum()))
     y_pred_f = testingpart(p, y_pred, ei)
-    naiveaccuracy = (l - len(a[p:] != y_pred_f))/l*100
+    naiveaccuracy = (l - (a[p:] != y_pred_f).sum())/l*100
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred_f).sum()))
 
     rnb = RandomForestClassifier(n_estimators=100)
     rfpred = rnb.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred).sum()))
     rfpred_f = testingpart(p, rfpred, ei)
-    randomaccuracy = (l - len(a[p:] != rfpred_f))/l*100
+    randomaccuracy = (l - (a[p:] != rfpred_f).sum())/l*100
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred_f).sum()))
 
     ptron = Perceptron(n_iter=50)
     ppred = ptron.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred).sum()))
     ppred_f = testingpart(p, ppred, ei)
-    perceptronaccuracy = (l - len(a[p:] != ppred_f))/l*100
+    perceptronaccuracy = (l - (a[p:] != ppred_f).sum())/l*100
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred_f).sum()))
 
     svc = SVC()
     spred = svc.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred).sum()))
     spred_f = testingpart(p, spred, ei)
-    SVMaccuracy = (l - len(a[p:] != spred_f))/l*100
+    SVMaccuracy = (l - (a[p:] != spred_f).sum())/l*100
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred_f).sum()))
 
     dict = {'NaiveBayes' : naiveaccuracy, 'RandomForest': randomaccuracy, 'Perceptron': perceptronaccuracy, 'SVM': SVMaccuracy}
