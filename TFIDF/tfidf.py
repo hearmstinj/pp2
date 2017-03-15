@@ -3,6 +3,7 @@ import sklearn as sk
 import random as rd
 from sklearn.ensemble import RandomForestClassifier
 import csv
+import json
 from sklearn import feature_extraction
 from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
@@ -68,32 +69,46 @@ def testingpart(si, pred, ei):
     return pred
 
 ei = len(V)    
-gnb = GaussianNB()
-y_pred = gnb.fit(V[:400], a[:400]).predict(V[400:])
-print(len(a[400:]), len(y_pred))
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[400:] != y_pred).sum()))
-y_pred_f = testingpart(400, y_pred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[400:] != y_pred_f).sum()))
 
-rnb = RandomForestClassifier(n_estimators=100)
-rfpred = rnb.fit(V[:400], a[:400]).predict(V[400:])
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[400:] != rfpred).sum()))
-rfpred_f = testingpart(400, rfpred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[400:] != rfpred_f).sum()))
+def get_accuracies(p):
+    l = len(V) - p
+    
+    gnb = GaussianNB()
+    y_pred = gnb.fit(V[:p], a[:p]).predict(V[p:])
+    print(len(a[p:]), len(y_pred))
+    print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred).sum()))
+    y_pred_f = testingpart(p, y_pred, ei)
+    naiveaccuracy = (l - len(a[p:] != y_pred_f))/l*100
+    print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred_f).sum()))
 
-ptron = Perceptron(n_iter=50)
-ppred = ptron.fit(V[:400], a[:400]).predict(V[400:])
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[400:] != ppred).sum()))
-ppred_f = testingpart(400, ppred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[400:] != ppred_f).sum()))
+    rnb = RandomForestClassifier(n_estimators=100)
+    rfpred = rnb.fit(V[:p], a[:p]).predict(V[p:])
+    print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred).sum()))
+    rfpred_f = testingpart(p, rfpred, ei)
+    randomaccuracy = (l - len(a[p:] != rfpred_f))/l*100
+    print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred_f).sum()))
 
-svc = SVC()
-spred = svc.fit(V[:400], a[:400]).predict(V[400:])
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[400:] != spred).sum()))
-spred_f = testingpart(400, spred, ei)
-print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[400:] != spred_f).sum()))
+    ptron = Perceptron(n_iter=50)
+    ppred = ptron.fit(V[:p], a[:p]).predict(V[p:])
+    print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred).sum()))
+    ppred_f = testingpart(p, ppred, ei)
+    perceptronaccuracy = (l - len(a[p:] != ppred_f))/l*100
+    print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred_f).sum()))
 
+    svc = SVC()
+    spred = svc.fit(V[:p], a[:p]).predict(V[p:])
+    print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred).sum()))
+    spred_f = testingpart(p, spred, ei)
+    SVMaccuracy = (l - len(a[p:] != spred_f))/l*100
+    print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred_f).sum()))
 
+    dict = {'NaiveBayes' : naiveaccuracy, 'RandomForest': randomaccuracy, 'Perceptron': perceptronaccuracy, 'SVM': SVMaccuracy}
+
+    jsonarray = json.dumps(dict, ensure_ascii=False)
+    
+    print(jsonarray)
+    
+get_accuracies(400)    
 
 
 
