@@ -555,9 +555,28 @@
     </script> -->
 
     <script>
-        data = $.csv.toArrays("../../CSV/HistoricalQuotes.csv")
-        console.log(data[1])
+        data = $.csv.toObjects("HistoricalQuotes.csv")
+        console.log(data)
+        function readTextFile(file, callback) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("application/json");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function() {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText);
+                }
+            }
+            rawFile.send(null);
+        }
+
+        //usage:
+        readTextFile("JSON/data.json", function(text){
+            var data = JSON.parse(text);
+            console.log(data);
+        });
     </script>
+
+
 
     <!--<script>
         $.ajax({
@@ -583,7 +602,7 @@
             document.write("Hi");
             $.ajax({
                 type: "GET",
-                url: "../../CSV/HistoricalQuotes.txt",
+                url: "<HistoricalQuotes class="csv"></HistoricalQuotes>",
                 dataType: "text"
             }).success(function(data) { alert("Hi");processData(data); })
         });
