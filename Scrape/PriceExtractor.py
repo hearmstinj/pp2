@@ -2,8 +2,8 @@ import csv
 
 def getQuoteMovements(company):
     prev = 0
-    with open('../CSV/' + company + 'HistoricalQuotes.csv', 'r') as csvfile:
-        with open('../CSV/'+ company + 'QuoteMovements.csv', 'w') as output:
+    with open('../CSV/' + company + '_HistoricalQuotes.csv', 'r') as csvfile:
+        with open('../CSV/'+ company + '_QuoteMovements.csv', 'w') as output:
             reader = csv.reader(csvfile, delimiter=',')
             writer = csv.writer(output)
             for row in reversed(list(reader)):
