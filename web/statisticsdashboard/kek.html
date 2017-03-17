@@ -23,7 +23,7 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 
 
 
@@ -65,7 +65,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id="temp2" href="../Project/FrontEnd/RandomHTML/doc1.html" style="letter-spacing:2px">S<span>H</span>E<span>R</span>LOC<span>K</span> ANALYTICS</a>
+                <a class="navbar-brand" id="temp" href="../Project/FrontEnd/RandomHTML/doc1.html" style="letter-spacing:2px">S<span>H</span>E<span>R</span>LOC<span>K</span> ANALYTICS</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -393,48 +393,18 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>Page Referrer</h3>
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>Latest Articles</h3>
                             </div>
                             <div class="panel-body">
-                                <!--<div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
-                                </div>-->
+
                                 <div>
                                     <ul>
                                         <li id="ref1"></li>
                                         <li id="ref2"></li>
                                         <li id="ref3"></li>
+                                        <li id="ref4"></li>
+                                        <li id="ref5"></li>
+                                        <li id="ref6"></li>
                                     </ul>
                                 </div>
                                 <div class="text-right">
@@ -506,7 +476,7 @@
                                             <td align="center" id="sizelarge"></td>
 
                                         </tr>
-
+                                        </tbody>
                                     </table>
                                 </div>
                                 <!--<div class="text-right">
@@ -525,7 +495,7 @@
     </div>
     <!-- /#page-wrapper -->
 
-
+    </div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -538,9 +508,6 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- jQuery-CSV JavaScript -->
-    <script src="../jquery-csv-master/src/jquery.csv.js"></script>
     <!-- <script>
         window.onload = function() {
             var xhr = new XMLHttpRequest();
@@ -553,30 +520,26 @@
             xhr.send();
         }
     </script> -->
-
     <script>
-        data = $.csv.toObjects("HistoricalQuotes.csv")
-        console.log(data)
-        function readTextFile(file, callback) {
-            var rawFile = new XMLHttpRequest();
-            rawFile.overrideMimeType("application/json");
-            rawFile.open("GET", file, true);
-            rawFile.onreadystatechange = function() {
-                if (rawFile.readyState === 4 && rawFile.status == "200") {
-                    callback(rawFile.responseText);
-                }
+    /*window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "phpfiles/postToDashboard.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                //document.getElementById("tvntid1").innerHTML = xhr.responseText;
+                var data = xhr.responseText;
+                //document.write(xhr.responseText);
+                document.getElementById("ref1").innerHTML = data;
+                document.getElementById("ref2").innerHTML = data.aapl;
+                document.getElementById("ref3").innerHTML = data.csco;
+                document.getElementById("ref4").innerHTML = data.tsla;
+                document.getElementById("ref5").innerHTML = data.msft;
+                document.getElementById("ref6").innerHTML = data.aapl;
             }
-            rawFile.send(null);
         }
-
-        //usage:
-        readTextFile("JSON/data.json", function(text){
-            var data = JSON.parse(text);
-            console.log(data);
-        });
+        xhr.send();
+    }*/
     </script>
-
-
 
     <!--<script>
         $.ajax({
@@ -598,38 +561,34 @@
     </script>
 
     <script>
-        $(document).ready(function(){
-            document.write("Hi");
-            $.ajax({
-                type: "GET",
-                url: "<HistoricalQuotes class="csv"></HistoricalQuotes>",
-                dataType: "text"
-            }).success(function(data) { alert("Hi");processData(data); })
-        });
+        var k = function(){
+            //document.write("Hi");
+            console.log("Hi");
 
-        function processData(allText) {
-            var recordNum = 6;
-            var allTextLines = allText.split(/\r\n|\n/);
-            var entries = allTextLines[0].split(",");
-            var lines = [];
 
-            for (var i=0; i<allTextLines.length; i++) {
-                var data = allTextLines[i].split(',');
-                if (data.length == headers.length) {
+        $.ajax({
+            type: "GET",
+            url: "phpfiles/postToDashboard.php",
+            data: "",
+            dataType: "JSON"
+        }).success(function(data) {
+            console.log("Hello");
 
-                    var tarr = [];
-                    for (var j=0; j<headers.length; j++) {
-                        tarr.push(data[j]);
-                    }
-                    lines.push(tarr);
-                }
-            }
-            alert("Hi");
-            alert(lines[0]);
-        }
+            // Update the latest links box
+            document.getElementById("ref1").innerHTML = "<a href=" + data.aapl + ">" + data.aapl + "</a>";
+            document.getElementById("ref2").innerHTML = "<a href=" + data.amzn + ">" + data.amzn + "</a>";
+            document.getElementById("ref3").innerHTML = "<a href=" + data.csco + ">" + data.csco + "</a>";
+            document.getElementById("ref4").innerHTML = "<a href=" + data.tsla + ">" + data.tsla + "</a>";
+            document.getElementById("ref5").innerHTML = "<a href=" + data.msft + ">" + data.msft + "</a>";
+            document.getElementById("ref6").innerHTML = "<a href=" + data.ssnlf + ">" + data.ssnlf + "</a>";
+
+            
+
+        })
+    }
+    k();
     </script>
-
-    <script>
+    <!--<script>
         $.ajax({
             type: "GET",
             url: "../Project/mysqlilogin/userspecific.php",
@@ -663,11 +622,12 @@
                 }],
                 resize: true
             });
-
+            /*
             document.getElementById("ref1").innerHTML = thedata.ref1;
             document.getElementById("ref2").innerHTML = thedata.ref2;
             document.getElementById("ref3").innerHTML = thedata.ref3;
-
+            document.getElementById("ref4").innerHTML = "Hi";
+            */
             document.getElementById("windowsc").innerHTML = thedata.windowsc;
             document.getElementById("linc").innerHTML = thedata.linc;
             document.getElementById("androidc").innerHTML = thedata.androidc;
@@ -756,7 +716,7 @@
           });
 
         })
-    </script>
+    </script> -->
 
 </body>
 

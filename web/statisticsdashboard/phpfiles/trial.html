@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LOL</title>
+</head>
+<body>
+    <script>
+    window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "postToDashboard.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                //document.getElementById("tvntid1").innerHTML = xhr.responseText;
+                document.write(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+    </script>
+
+
+
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
