@@ -18,7 +18,7 @@ def stem(symbols):
         # Go through each text portion of the data-frame and stem the article
         for datum in data:
             print(datum[2])
-            temp_text = datum[2]
+            temp_text = str(datum[2])
             datum[2] = " ".join([pts.stem(i) for i in temp_text.split()])
             print(datum[2])
 
