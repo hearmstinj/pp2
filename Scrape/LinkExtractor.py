@@ -35,7 +35,7 @@ def extract(baseURL, nodeURL, symbol):
     except urllib.error.HTTPError:
         extract(baseURL, nodeURL)
     info = BeautifulSoup(page, "lxml")
-    lastNumber = int(info.find("a", {"id" : "quotes_content_left_lb_LastPage"})['href'][-2:])
+    lastNumber = int(info.find("a", {"id": "quotes_content_left_lb_LastPage"})['href'][-2:])
     
     # create a list to store the links
     links = list()
