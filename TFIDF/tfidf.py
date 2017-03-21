@@ -45,9 +45,10 @@ print(len(B))'''
 
 # a = [1 if rd.randint(0, 10) > 3 else 0 for x in range(371)]
 # print(a)
-
-# IMPORTANT MUST READ
-# FIRST RUN DATASCRAPER.PY -> RUN PRICE EXTRACTOR.PY -> RUN GENERATEMOVEMENTS.PY -> RUN TFIDF.PY
+#####################################################################################################
+# IMPORTANT MUST READ                                                                               #
+# FIRST RUN DATASCRAPER.PY -> RUN PRICE EXTRACTOR.PY -> RUN GENERATEMOVEMENTS.PY -> RUN TFIDF.PY    #
+#####################################################################################################
 atz = list(build_df("../CSV/labels.csv"))
 a1 = atz[0][0].split(',')
 a = a1[::-1]
