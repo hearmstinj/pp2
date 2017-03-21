@@ -21,8 +21,8 @@
       <file leaf-file-name="tfidf.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+            <state relative-caret-position="197">
+              <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -30,13 +30,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workflow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scrape/workflow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="170">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
-                <element signature="e#84#102#0" expanded="true" />
+                <element signature="e#84#114#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,18 +45,18 @@
       <file leaf-file-name="PriceExtractor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenerateMovements.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenerateMovements.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -132,11 +132,11 @@
         <option value="$PROJECT_DIR$/Scrape/LinkExtractor.py" />
         <option value="$PROJECT_DIR$/CSV/HistoricalQuotes.csv" />
         <option value="$PROJECT_DIR$/CSV/aapl_QuoteMovements.csv" />
-        <option value="$PROJECT_DIR$/Scrape/PriceExtractor.py" />
         <option value="$PROJECT_DIR$/CSV/aapl_HistoricalQuotes.csv" />
         <option value="$PROJECT_DIR$/Scrape/DataScraper.py" />
         <option value="$PROJECT_DIR$/TFIDF/GenerateMovements.py" />
         <option value="$PROJECT_DIR$/TFIDF/tfidf.py" />
+        <option value="$PROJECT_DIR$/Scrape/PriceExtractor.py" />
         <option value="$PROJECT_DIR$/Scrape/workflow.py" />
       </list>
     </option>
@@ -306,7 +306,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="C:/ProjectPhase2" />
   </component>
-  <component name="RunManager" selected="Python.tfidf">
+  <component name="RunManager" selected="Python.workflow">
     <configuration default="false" name="PriceExtractor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -535,11 +535,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tfidf" />
-        <item index="1" class="java.lang.String" itemvalue="Python.GenerateMovements" />
-        <item index="2" class="java.lang.String" itemvalue="Python.PriceExtractor" />
-        <item index="3" class="java.lang.String" itemvalue="Python.DataScraper" />
-        <item index="4" class="java.lang.String" itemvalue="Python.workflow" />
+        <item index="0" class="java.lang.String" itemvalue="Python.workflow" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tfidf" />
+        <item index="2" class="java.lang.String" itemvalue="Python.GenerateMovements" />
+        <item index="3" class="java.lang.String" itemvalue="Python.PriceExtractor" />
+        <item index="4" class="java.lang.String" itemvalue="Python.DataScraper" />
       </list>
     </recent_temporary>
   </component>
@@ -596,7 +596,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33382788" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33382788" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22181553" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -912,22 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/autoscrape.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -938,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TFIDF/tfidf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+        <state relative-caret-position="197">
+          <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -948,11 +932,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scrape/workflow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="170">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
-            <element signature="e#84#102#0" expanded="true" />
+            <element signature="e#84#114#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scrape/PriceExtractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFIDF/GenerateMovements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
