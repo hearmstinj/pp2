@@ -37,8 +37,8 @@ def generate_tfidf(company):
     B = vectorizer.get_feature_names()
     doc1 = V[0].tolist()[0]
     words_used = [pair for pair in zip(range(0, len(doc1)), doc1) if pair[1] > 0]
-#print(words_used)
-#print(doc1)
+    #print(words_used)
+    #print(doc1)
     '''print(sorted(words_used, key=lambda t: t[1] * -1))
     print(B[5460], B[1946], B[10559])
     print(V)
