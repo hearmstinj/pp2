@@ -71,7 +71,8 @@ def testingpart(si, pred, ei, labels):
     for y in range(prev_index, x):
         pred[y - si] = val
     return pred
-  
+
+
 def get_accuracies(p, labels):
     l = ei - p
     
