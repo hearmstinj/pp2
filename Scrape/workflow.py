@@ -19,4 +19,4 @@ def workflow(company):
     GenerateMovements.generate_labels(company)
     tfidf.get_tfidf(company)
     
-workflow('aapl')    
+workflow('aapl')

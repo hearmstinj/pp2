@@ -115,4 +115,4 @@ def get_tfidf(company):
     labels = generate_tfidf('aapl')
     get_accuracies(400, labels) 
 
-get_tfidf('aapl')
+# get_tfidf('aapl')
