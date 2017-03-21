@@ -12,6 +12,7 @@ sys.path.append('../TFIDF/.')
 import GenerateMovements
 import tfidf
 
+
 def workflow(company):
     DataScraper.scrape(company)
     PriceExtractor.getQuoteMovements(company)

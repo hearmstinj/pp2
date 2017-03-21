@@ -56,7 +56,6 @@ def generate_tfidf(company):
     global ei
     ei = len(V)
     return labels
-# print(a[:400])
 
 
 def testingpart(si, pred, ei, labels):
