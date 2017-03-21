@@ -116,12 +116,3 @@ def get_tfidf(company):
     get_accuracies(400, labels) 
 
 get_tfidf('aapl')
-    
-<<<<<<< HEAD
-=======
-get_accuracies(400)
->>>>>>> 98cf7ceb14b91f662b011be4e9b817cf6a8d2ec0
-
-
-
-
