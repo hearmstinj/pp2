@@ -5,13 +5,16 @@ Created on Fri Mar 17 21:47:56 2017
 @author: USER
 """
 
-import DataScrapper
+import DataScraper
 import PriceExtractor
+import sys
+sys.path.append('../TFIDF/GenerateMovements')
+sys.path.append('../TFIDF/tfidf')
 import GenerateMovements
 import tfidf
 
 def workflow(company):
-    DataScrapper.scrape(['aapl'])
+    DataScraper.scrape(['aapl'])
     PriceExtractor.getQuoteMovements('aapl')
     GenerateMovements.getMovement('aapl')
     tfidf.get_tfidf('aapl')

@@ -17,6 +17,4 @@ def scrape(symbols):
         
         #write the csv data to file
         TextWriter.writeToCSV(text, symbol)
-        print("Finished writing file.")
-            
-scrape(['amzn', 'aapl', 'msft', 'tsla', 'ssnlf', 'csco', 'googl'])
+        print("Finished writing file.")           
