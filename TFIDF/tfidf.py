@@ -108,7 +108,7 @@ def get_accuracies(p):
     
     print(jsonarray)
     
-get_accuracies(400)    
+get_accuracies(400)
 
 
 
