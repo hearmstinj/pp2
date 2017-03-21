@@ -49,10 +49,9 @@ print(len(B))'''
 # IMPORTANT MUST READ                                                                               #
 # FIRST RUN DATASCRAPER.PY -> RUN PRICE EXTRACTOR.PY -> RUN GENERATEMOVEMENTS.PY -> RUN TFIDF.PY    #
 #####################################################################################################
-atz = list(build_df("../CSV/labels.csv"))
+atz = list(build_df("../CSV/aapl_labels.csv"))
 a1 = atz[0][0].split(',')
 a = a1[::-1]
-# print(a[:400])
 
 
 def testingpart(si, pred, ei):

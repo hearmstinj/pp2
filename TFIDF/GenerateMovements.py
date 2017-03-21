@@ -30,3 +30,5 @@ def generate_labels(symbol):
     with open("../CSV/" + symbol + "_labels.csv", "w") as file:
         writer = csv.writer(file)
         writer.writerow(labels)
+
+generate_labels('aapl')

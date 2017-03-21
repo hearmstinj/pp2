@@ -14,4 +14,5 @@ def getQuoteMovements(company):
                     writer.writerow(row + [1])
                 else:
                     writer.writerow(row + [0])
-                    
+
+getQuoteMovements('aapl')
