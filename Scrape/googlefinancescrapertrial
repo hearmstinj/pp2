@@ -1,5 +1,5 @@
 import sys
-
+import os
 sys.path.append('../CSV/.')
 from bs4 import BeautifulSoup
 import urllib
@@ -10,9 +10,13 @@ from pathlib import Path
 
 
 def getlastvalue(company):
-    with open('../CSV/' + company + '_HistoricalQuotes.csv', 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        return next(reader)[0]
+    my_file = Path(r"../CSV/" + company + "_HistoricalQuotes.csv")
+    if my_file.is_file() and os.path.getsize(str(my_file)) > 0:
+        with open('../CSV/' + company + '_HistoricalQuotes.csv', 'r') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            return next(reader)[0]
+    else:
+        return "2000/01/01"
 
 
 def change_day(date):
@@ -23,7 +27,8 @@ def change_day(date):
         day = "0" + day
     return day
 
-def writeToCSV(text, symbol):
+
+def writeToExistingCSV(text, symbol):
     fname = "../CSV/" + symbol + "_HistoricalQuotes.csv"
     with open(fname, "r+", encoding='utf-8', newline='') as file:
         old = file.read()
@@ -31,6 +36,14 @@ def writeToCSV(text, symbol):
         writer = csv.writer(file, delimiter=',')
         writer.writerows(text)
         file.write(old)
+
+
+def writeToNewCSV(text, symbol):
+    fname = "../CSV/" + symbol + "_HistoricalQuotes.csv"
+    with open(fname, "w", encoding='utf-8', newline='') as file:
+        writer = csv.writer(file, delimiter=',')
+        writer.writerows(text)
+
 
 def writetoHistoricalQuotes(ld, company):
     month_map = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
@@ -52,7 +65,7 @@ def writetoHistoricalQuotes(ld, company):
                 row = list()
             continue
         if counter % 6 == 0:
-            string = "2017/" + month_map[string[0:3]] + "/" + change_day(string)
+            string = string.split()[2] + "/" + month_map[string[0:3]] + "/" + change_day(string)
         row.append(string)
         counter += 1
         if counter % 6 == 0:
@@ -69,6 +82,10 @@ def writetoHistoricalQuotes(ld, company):
     return rows_to_add
 
 
-lastdate = getlastvalue('aapl')
-new_rows = writetoHistoricalQuotes(lastdate, 'aapl')
-writeToCSV(new_rows, 'aapl')
+lastdate = getlastvalue('googl')
+new_rows = writetoHistoricalQuotes(lastdate, 'googl')
+my_file = Path(r"../CSV/" + 'googl' + "_HistoricalQuotes.csv")
+if my_file.is_file():
+    writeToExistingCSV(new_rows, 'googl')
+else:
+    writeToNewCSV(new_rows, 'googl')
