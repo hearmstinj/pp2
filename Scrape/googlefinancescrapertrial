@@ -6,6 +6,7 @@ import urllib
 from urllib import request
 import time
 import csv
+from pathlib import Path
 
 
 def getlastvalue(company):
@@ -34,7 +35,7 @@ def writeToCSV(text, symbol):
 def writetoHistoricalQuotes(ld, company):
     month_map = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
                  "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
-    url = "https://www.google.com/finance/historical?q=NASDAQ%3A" + company
+    url = "https://www.google.com/finance/historical?q=NASDAQ%3A" + company + "&start=0&num=450"
     webpage = urllib.request.urlopen(url)
     soup = BeautifulSoup(webpage, 'lxml')
     table = soup.find('table', {"class": "gf-table historical_price"})
