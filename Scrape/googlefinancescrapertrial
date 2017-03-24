@@ -24,7 +24,7 @@ def change_day(date):
 
 def writeToCSV(text, symbol):
     fname = "../CSV/" + symbol + "_HistoricalQuotes.csv"
-    with open(fname, "r+", encoding='utf-8') as file:
+    with open(fname, "r+", encoding='utf-8', newline='') as file:
         old = file.read()
         file.seek(0)
         writer = csv.writer(file, delimiter=',')
