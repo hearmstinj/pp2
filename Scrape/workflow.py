@@ -14,11 +14,12 @@ import GenerateMovements
 import tfidf
 
 
-def workflow(company):
-    DataScraper.scrape([company])
-    QuotesScraper.generate_quotes([company])
-    PriceExtractor.getQuoteMovements(company) 
-    GenerateMovements.generate_labels(company)
-    tfidf.get_tfidf(company)
+def workflow(companies):
+    for company in companies:
+        DataScraper.scrape([company])
+        QuotesScraper.generate_quotes([company])
+        PriceExtractor.getQuoteMovements(company) 
+        GenerateMovements.generate_labels(company)
+        tfidf.get_tfidf(company)
     
-workflow('tsla')
+workflow(['aapl','amzn','googl','msft','tsla'])
