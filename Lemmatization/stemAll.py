@@ -19,7 +19,7 @@ def stem(symbols):
         for datum in data:
             print(datum[2])
             temp_text = datum[2]
-            datum[2] = " ".join([pts.stem(i) for i in str(temp_text).split()])
+            datum[2] = " ".join([pts.stem(i) for i in temp_text.split()])
             print(datum[2])
 
         with open("../CSV/" + symbol + "_information_stemmed.csv", "w", encoding='utf-8') as file:
