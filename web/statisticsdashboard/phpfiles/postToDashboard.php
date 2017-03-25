@@ -16,7 +16,7 @@
     $news = array("aapl" => $referrer[0], "amzn" => $referrer[1], "csco" => $referrer[2], "tsla" => $referrer[3], "msft" => $referrer[4], "ssnlf" => $referrer[5], "googl" => $referrer[6]);
 
     //Obtain the daily price change metrics for AAPL, AMZN, MSFT and GOOGL
-    $symbols = array("aapl", "amzn", "msft", "googl");
+    $symbols = array("aapl", "amzn", "csco", "googl", "msft", "tsla");
     $differences = array();
     foreach ($symbols as $symbol) {
         $current_file = fopen("CSV/" . $symbol . "_HistoricalQuotes.csv", "r");
@@ -25,23 +25,30 @@
         array_push($differences, $current_value[1] - $previous_value[1]);
         fclose($current_file);
     }
-    $change = array("aapl" => $differences[0], "amzn" => $differences[1], "msft" => $differences[2], "googl" => $differences[3]);
+    $change = array("aapl" => $differences[0], "amzn" => $differences[1], "msft" => $differences[3], "googl" => $differences[4]);
 
+    // ============================================================================================
     //Generate the historical quotes graph for the past 10 days and print close values for each day
 
     $daily_close = array();
+    $file_handlers = array();
     foreach ($symbols as $symbol) {
-        $current_file = fopen("CSV/" . $symbol . "_HistoricalQuotes.csv", "r");
-        // Get the last 10 days quotes
-        $day = array();
-        for ($i = 0; $i < 10; $i++) {
-            $row = fgetcsv($current_file);
-            array_push($day, $row[0]);
-            array_push()
-        }
+        array_push($file_handlers, fopen("CSV/" . $symbol . "_HistoricalQuotes.csv", "r"));
     }
 
-    $final = array("news" => $news, "quotes" => $change);
+    for ($i = 0; $i < 10; $i++) {
+        $day = array();
+        array_push($day, "date");
+        for ($j = 0; $j < 6; $j++) {
+            $row = fgetcsv($file_handlers[$j]);
+            $day_split = explode("/", $row[0]);
+            $day[0] = $day_split[0] . "-" . $day_split[1] . "-" . $day_split[2];
+            array_push($day, $row[1]);
+        }
+        array_push($daily_close, $day);
+    }
+    // ============================================================================================
+    $final = array("news" => $news, "quotes" => $change, "history" => $daily_close);
 
     echo json_encode($final);
 ?>

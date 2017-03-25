@@ -590,6 +590,103 @@
             document.getElementById("msft_change").innerHTML = data.quotes.msft.toFixed(2);
             document.getElementById("googl_change").innerHTML = data.quotes.googl.toFixed(2);
 
+            // ====================================================================================
+            //Update the Area chart with stock histories
+            new Morris.Area({
+                element: 'morris-area-chart',
+                data: [{
+                    Day: data.history[0][0],
+                    AAPL: data.history[0][1],
+                    AMZN: data.history[0][2],
+                    CSCO: data.history[0][3],
+                    GOOGL: data.history[0][4],
+                    MSFT: data.history[0][5],
+                    TSLA: data.history[0][6],
+                }, {
+                    Day: data.history[1][0],
+                    AAPL: data.history[1][1],
+                    AMZN: data.history[1][2],
+                    CSCO: data.history[1][3],
+                    GOOGL: data.history[1][4],
+                    MSFT: data.history[1][5],
+                    TSLA: data.history[1][6],
+                }, {
+                    Day: data.history[2][0],
+                    AAPL: data.history[2][1],
+                    AMZN: data.history[2][2],
+                    CSCO: data.history[2][3],
+                    GOOGL: data.history[2][4],
+                    MSFT: data.history[2][5],
+                    TSLA: data.history[2][6],
+                }, {
+                    Day: data.history[3][0],
+                    AAPL: data.history[3][1],
+                    AMZN: data.history[3][2],
+                    CSCO: data.history[3][3],
+                    GOOGL: data.history[3][4],
+                    MSFT: data.history[3][5],
+                    TSLA: data.history[3][6],
+                }, {
+                    Day: data.history[4][0],
+                    AAPL: data.history[4][1],
+                    AMZN: data.history[4][2],
+                    CSCO: data.history[4][3],
+                    GOOGL: data.history[4][4],
+                    MSFT: data.history[4][5],
+                    TSLA: data.history[4][6],
+                }, {
+                    Day: data.history[5][0],
+                    AAPL: data.history[5][1],
+                    AMZN: data.history[5][2],
+                    CSCO: data.history[5][3],
+                    GOOGL: data.history[5][4],
+                    MSFT: data.history[5][5],
+                    TSLA: data.history[5][6],
+                }, {
+                    Day: data.history[6][0],
+                    AAPL: data.history[6][1],
+                    AMZN: data.history[6][2],
+                    CSCO: data.history[6][3],
+                    GOOGL: data.history[6][4],
+                    MSFT: data.history[6][5],
+                    TSLA: data.history[6][6],
+                }, {
+                    Day: data.history[7][0],
+                    AAPL: data.history[7][1],
+                    AMZN: data.history[7][2],
+                    CSCO: data.history[7][3],
+                    GOOGL: data.history[7][4],
+                    MSFT: data.history[7][5],
+                    TSLA: data.history[7][6],
+                }, {
+                    Day: data.history[8][0],
+                    AAPL: data.history[8][1],
+                    AMZN: data.history[8][2],
+                    CSCO: data.history[8][3],
+                    GOOGL: data.history[8][4],
+                    MSFT: data.history[8][5],
+                    TSLA: data.history[8][6],
+                }, {
+                    Day: data.history[9][0],
+                    AAPL: data.history[9][1],
+                    AMZN: data.history[9][2],
+                    CSCO: data.history[9][3],
+                    GOOGL: data.history[9][4],
+                    MSFT: data.history[9][5],
+                    TSLA: data.history[9][6],
+                }],
+                xkey: 'Day',
+                ykeys: ['AAPL', 'AMZN', 'CSCO', 'GOOGL', 'MSFT', 'TSLA'],
+                labels: ['AAPL', 'AMZN', 'CSCO', 'GOOGL', 'MSFT', 'TSLA'],
+                xLabels: "day",
+                pointSize: 2,
+                hideHover: 'auto',
+                resize: true,
+                behaveLikeLine: true,
+                lineColors: ["#0000ff", "123321", "#aa33bb", "#0000ff", "#ff0000", "#33ff99"],
+                fillOpacity: 0.5
+            });
+            // ====================================================================================
         })
     }
     k();
