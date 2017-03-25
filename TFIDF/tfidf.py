@@ -11,6 +11,9 @@ from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC
 from collections import Counter
 
+global symbol 
+symbol = "aapl" 
+
 def build_df(path):
     df = pd.read_csv(path, header=None, error_bad_lines=False, sep=';')
     #print(df)
@@ -76,12 +79,15 @@ def testingpart(si, pred, ei, labels):
 def get_accuracies(p, labels):
     l = ei - p
     
+    
+    
     gnb = GaussianNB()
     y_pred = gnb.fit(V[:p], a[:p]).predict(V[p:])
     print(len(a[p:]), len(y_pred))
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred).sum()))
     y_pred_f = testingpart(p, y_pred, ei, labels)
     naiveaccuracy = (l - (a[p:] != y_pred_f).sum())/l*100
+    na_count = (a[p:] != y_pred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred_f).sum()))
 
     rnb = RandomForestClassifier(n_estimators=100)
@@ -89,6 +95,7 @@ def get_accuracies(p, labels):
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred).sum()))
     rfpred_f = testingpart(p, rfpred, ei, labels)
     randomaccuracy = (l - (a[p:] != rfpred_f).sum())/l*100
+    ra_count = (a[p:] != rfpred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred_f).sum()))
 
     ptron = Perceptron(n_iter=50)
@@ -96,6 +103,7 @@ def get_accuracies(p, labels):
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred).sum()))
     ppred_f = testingpart(p, ppred, ei, labels)
     perceptronaccuracy = (l - (a[p:] != ppred_f).sum())/l*100
+    pa_count = (a[p:] != ppred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred_f).sum()))
 
     svc = SVC()
@@ -103,16 +111,33 @@ def get_accuracies(p, labels):
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred).sum()))
     spred_f = testingpart(p, spred, ei, labels)
     SVMaccuracy = (l - (a[p:] != spred_f).sum())/l*100
+    sa_count = (a[p:] != spred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred_f).sum()))
 
     dict = {'NaiveBayes' : naiveaccuracy, 'RandomForest': randomaccuracy, 'Perceptron': perceptronaccuracy, 'SVM': SVMaccuracy}
 
     jsonarray = json.dumps(dict, ensure_ascii=False)
     
+    with open('../CSV/FinalResult.csv', 'a') as csvfile:
+         writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
+         NaiveBayes=[symbol,"GaussianNB",len(V),na_count,naiveaccuracy]
+         RFC=[symbol,"RandomForestClassifier",len(V),ra_count,randomaccuracy]
+         Perceptrons=[symbol,"Perceptron",len(V),pa_count,perceptronaccuracy]
+         svc=[symbol,"SVC",len(V),sa_count,SVMaccuracy]
+         writer.writerow(NaiveBayes)
+         writer.writerow(RFC)
+         writer.writerow(Perceptrons)
+         writer.writerow(svc)
+          
+         
+    
     print(jsonarray)
 
-def get_tfidf(company):    
+def get_tfidf(company):   
+    symbol = company
     labels = generate_tfidf('aapl')
     get_accuracies(400, labels) 
+    
+    
 
 get_tfidf('aapl')

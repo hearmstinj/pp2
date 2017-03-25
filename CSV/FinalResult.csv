@@ -1,0 +1,5 @@
+aapl,GaussianNB,984,236,59.5890410959
+aapl,RandomForestClassifier,984,236,59.5890410959
+aapl,Perceptron,984,236,59.5890410959
+aapl,SVC,984,236,59.5890410959
+
