@@ -31,4 +31,4 @@ def generate_labels(symbol):
         writer = csv.writer(file)
         writer.writerow(labels)
 
-generate_labels('aapl')
+generate_labels('amzn')
