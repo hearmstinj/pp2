@@ -82,10 +82,14 @@ def writetoHistoricalQuotes(ld, company):
     return rows_to_add
 
 
-lastdate = getlastvalue('googl')
-new_rows = writetoHistoricalQuotes(lastdate, 'googl')
-my_file = Path(r"../CSV/" + 'googl' + "_HistoricalQuotes.csv")
-if my_file.is_file():
-    writeToExistingCSV(new_rows, 'googl')
-else:
-    writeToNewCSV(new_rows, 'googl')
+def generate_quotes(symbols):
+    for symbol in symbols:
+        lastdate = getlastvalue(symbol)
+        new_rows = writetoHistoricalQuotes(lastdate, symbol)
+        my_file = Path(r"../CSV/" + symbol + "_HistoricalQuotes.csv")
+        if my_file.is_file():
+            writeToExistingCSV(new_rows, symbol)
+        else:
+            writeToNewCSV(new_rows, symbol)
+
+generate_quotes(['aapl', 'amzn', 'csco', 'googl', 'msft', 'tsla'])
