@@ -5,8 +5,9 @@ Created on Fri Mar 17 21:47:56 2017
 @author: USER
 """
 
-from DataScraper import scrape
+import DataScraper
 import PriceExtractor
+import QuotesScraper
 import sys
 sys.path.append('../TFIDF/.')
 import GenerateMovements
@@ -14,9 +15,10 @@ import tfidf
 
 
 def workflow(company):
-    DataScraper.scrape(company)
-    # PriceExtractor.getQuoteMovements(company)
+    DataScraper.scrape([company])
+    QuotesScraper.generate_quotes([company])
+    PriceExtractor.getQuoteMovements(company) 
     GenerateMovements.generate_labels(company)
     tfidf.get_tfidf(company)
     
-workflow('aapl')
+workflow('tsla')

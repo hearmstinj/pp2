@@ -15,4 +15,4 @@ def getQuoteMovements(company):
                 else:
                     writer.writerow(row + [0])
 
-getQuoteMovements('amzn')
+#getQuoteMovements('amzn')

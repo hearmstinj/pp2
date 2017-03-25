@@ -76,11 +76,9 @@ def testingpart(si, pred, ei, labels):
     return pred
 
 
-def get_accuracies(p, labels):
+def get_accuracies(p, labels, symbol):
     l = ei - p
-    
-    
-    
+     
     gnb = GaussianNB()
     y_pred = gnb.fit(V[:p], a[:p]).predict(V[p:])
     print(len(a[p:]), len(y_pred))
@@ -135,9 +133,9 @@ def get_accuracies(p, labels):
 
 def get_tfidf(company):   
     symbol = company
-    labels = generate_tfidf('aapl')
-    get_accuracies(400, labels) 
+    labels = generate_tfidf(company)
+    get_accuracies(200, labels, company) 
     
     
 
-get_tfidf('aapl')
+#get_tfidf('amzn')

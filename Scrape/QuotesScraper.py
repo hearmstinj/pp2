@@ -92,4 +92,4 @@ def generate_quotes(symbols):
         else:
             writeToNewCSV(new_rows, symbol)
 
-generate_quotes(['aapl', 'amzn', 'csco', 'googl', 'msft', 'tsla'])
+#generate_quotes(['aapl', 'amzn', 'csco', 'googl', 'msft', 'tsla'])
