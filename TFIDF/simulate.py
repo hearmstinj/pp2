@@ -16,17 +16,17 @@ def handle_data(context, data):
 
 
 def analyze(context, perf):
+    print(perf[:1])
     ax1 = plt.subplot(211)
     perf.portfolio_value.plot(ax=ax1)
     ax2 = plt.subplot(212, sharex=ax1)
-    perf.capital_used.plot(ax=ax2)
+    perf.AAPL.plot(ax=ax2)
     plt.gcf().set_size_inches(18, 8)
     plt.show()
 
 startDate = datetime(2017, 1, 1, 0, 0, 0, 0, pytz.utc)
 endDate = datetime(2017, 3, 25, 0, 0, 0, 0, pytz.utc)
 
-data = pd.read_pickle("buyapple_out.pickle")
-for x in data:
-    print(x)
-run_algorithm(start=startDate, end=endDate, initialize=initialize, capital_base=10000.00, analyze=analyze)
+"""data = pd.read_pickle("buyapple_out.pickle")
+print(data[:-1])"""
+run_algorithm(start=startDate, end=endDate, handle_data=handle_data, initialize=initialize, capital_base=10000.00, analyze=analyze)
