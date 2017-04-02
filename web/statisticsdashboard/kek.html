@@ -435,7 +435,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i>Analytics Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i>Simulation data</h3>
                             </div>
                             <iframe id="pythonframe" width="0" height="0"></iframe>
                             <div class="panel-body">
@@ -443,21 +443,25 @@
                                     <table class="table table-bordered table-hover table-striped">
 
                                         <tr>
-                                            <th colspan="4" align="center">Browser</th>
+                                            <th colspan="12" align="center">Numerical Data</th>
 
                                         </tr>
 
 
                                         <tr>
-                                            <td align="center">Chrome</td>
+                                            <td align="center">Starting Cash</td>
 
-                                            <td align="center">Internet Explorer</td>
+                                            <td align="center">Ending Cash</td>
+
+                                            <td align="center">Returns</td>
 
                                         </tr>
                                         <tr>
-                                            <td align="center" id="chromecount">120</td>
+                                            <td align="center" id="sim_start_cash"></td>
 
-                                            <td align="center" id="slowcount">2</td>
+                                            <td align="center" id="sim_end_cash"></td>
+
+                                            <td align="center" id="sim_capital"></td>
 
                                         </tr>
                                         <tr>
@@ -781,9 +785,25 @@
 
             });
         }
+        var c = function() {
+            console.log("Fetching data about simulation.");
+            $.ajax({
+                type: "GET",
+                url: "phpfiles/associated_data.txt"
+            }).success(function(data){
+                var values = data.split(' ');
+                var sim_start_cash = values[0];
+                var sim_end_cash = values[1];
+                var sim_capital = values[2];
+                document.getElementById("sim_start_cash").innerHTML = sim_start_cash;
+                document.getElementById("sim_end_cash").innerHTML = sim_end_cash;
+                document.getElementById("sim_capital").innerHTML = sim_capital;
+            })
+        }
         $('#simulate').click(function() {
             console.log("Heyo, inside click function");
             b();
+            setTimeout(c, 50000);
         });
 
     </script>

@@ -44,13 +44,18 @@ def analyze(context, perf):
     # print(html)
     text = html.split(' ')
     furnished_text = ' '.join(text)
-    print(len(furnished_text))
+    # print(len(furnished_text))
     # return furnished_text
+    assoc_data = str(perf.starting_cash[0]) + " " +  str(perf.ending_cash[-1]) + " " +  str(perf.algorithm_period_return[-1])
 
     with open("graph.txt", "w") as file:
         file.write(html)
 
+    with open("associated_data.txt", "w") as file:
+        file.write(assoc_data)
+    print(assoc_data)
     # plt.show()
+
 start_args = sys.argv[1].split('/')
 end_args = sys.argv[2].split('/')
 capital = sys.argv[3]

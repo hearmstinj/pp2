@@ -30,7 +30,7 @@ def handle_data(context, data):
         order(symbol('AAPL'), -10 * count)
         count = 0
     record(AAPL=data[symbol('AAPL')].price)
-    print(context.portfolio)
+    # print(context.portfolio)
 
 
 def analyze(context, perf):
@@ -44,12 +44,14 @@ def analyze(context, perf):
     # print(html)
     text = html.split(' ')
     furnished_text = ' '.join(text)
-    print(furnished_text)
-    return furnished_text
-    """
-    with open("../../xampp/htdocs/statisticsdashboard/kek.html", "a") as file:
-        file.write(furnished_text)
-    """
+    # print(furnished_text)
+    for headings in perf:
+        print(headings)
+    print(perf.algorithm_period_return[-1])
+    print(perf.ending_cash[-1])
+    print(perf.ending_value[-2])
+    print(perf)
+
     # plt.show()
 
 startDate = datetime(2017, 1, 1, 0, 0, 0, 0, pytz.utc)
