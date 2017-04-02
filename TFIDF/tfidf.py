@@ -91,7 +91,7 @@ def get_accuracies(p, labels, symbol):
     print(len(a[p:]), len(y_pred))
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred).sum()))
     y_pred_f = testingpart(p, y_pred, ei, labels)
-    naiveaccuracy = (l - (a[p:] != y_pred_f).sum())/l*100
+    naiveaccuracy = (l - (a[p:] != y_pred).sum())/l*100
     na_count = (a[p:] != y_pred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred_f).sum()))
 
@@ -99,7 +99,7 @@ def get_accuracies(p, labels, symbol):
     rfpred = rnb.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred).sum()))
     rfpred_f = testingpart(p, rfpred, ei, labels)
-    randomaccuracy = (l - (a[p:] != rfpred_f).sum())/l*100
+    randomaccuracy = (l - (a[p:] != rfpred).sum())/l*100
     ra_count = (a[p:] != rfpred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred_f).sum()))
 
@@ -107,7 +107,7 @@ def get_accuracies(p, labels, symbol):
     ppred = ptron.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred).sum()))
     ppred_f = testingpart(p, ppred, ei, labels)
-    perceptronaccuracy = (l - (a[p:] != ppred_f).sum())/l*100
+    perceptronaccuracy = (l - (a[p:] != ppred).sum())/l*100
     pa_count = (a[p:] != ppred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Perceptrons" % (len(V), (a[p:] != ppred_f).sum()))
 
@@ -115,7 +115,7 @@ def get_accuracies(p, labels, symbol):
     spred = svc.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred).sum()))
     spred_f = testingpart(p, spred, ei, labels)
-    SVMaccuracy = (l - (a[p:] != spred_f).sum())/l*100
+    SVMaccuracy = (l - (a[p:] != spred).sum())/l*100
     sa_count = (a[p:] != spred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred_f).sum()))
 
@@ -123,7 +123,7 @@ def get_accuracies(p, labels, symbol):
 
     jsonarray = json.dumps(dict, ensure_ascii=False)
     
-    with open('../CSV/FinalResult.csv', 'a') as csvfile:
+    with open('../CSV/FinalResult.csv', 'w') as csvfile:
          writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
          NaiveBayes=[symbol,"GaussianNB",len(V),na_count,naiveaccuracy]
          RFC=[symbol,"RandomForestClassifier",len(V),ra_count,randomaccuracy]

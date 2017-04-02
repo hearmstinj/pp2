@@ -33,7 +33,7 @@ def extract(baseURL, nodeURL, symbol):
     try:
         page = urllib.request.urlopen(baseURL)
     except urllib.error.HTTPError:
-        extract(baseURL, nodeURL)
+        extract(baseURL, nodeURL, symbol)
     info = BeautifulSoup(page, "lxml")
     lastNumber = int(info.find("a", {"id": "quotes_content_left_lb_LastPage"})['href'][-2:])
     
