@@ -123,15 +123,17 @@ def get_accuracies(p, labels, symbol):
 
     jsonarray = json.dumps(dict, ensure_ascii=False)
     
-    with open('../CSV/FinalResult.csv', 'w') as csvfile:
+    with open('../CSV/FinalResult.csv', 'a') as csvfile:
          writer = csv.writer(csvfile, delimiter=',', lineterminator='\n')
-         NaiveBayes=[symbol,"GaussianNB",len(V),na_count,naiveaccuracy]
-         RFC=[symbol,"RandomForestClassifier",len(V),ra_count,randomaccuracy]
-         Perceptrons=[symbol,"Perceptron",len(V),pa_count,perceptronaccuracy]
-         svc=[symbol,"SVC",len(V),sa_count,SVMaccuracy]
+         NaiveBayes=[symbol, "GaussianNB", naiveaccuracy]
+         RFC=[symbol, "RandomForestClassifier", randomaccuracy]
+         Perceptrons=[symbol, "Perceptron", perceptronaccuracy]
+         svc=[symbol, "SVC", SVMaccuracy]
+         """
          writer.writerow(NaiveBayes)
          writer.writerow(RFC)
          writer.writerow(Perceptrons)
+         """
          writer.writerow(svc)
 
     print(jsonarray)
