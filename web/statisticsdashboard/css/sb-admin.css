@@ -213,13 +213,13 @@ ul.alert-dropdown {
 }
 
 .panel-white > .panel-heading {
-    border-color: #111111;
-    color: #ffffff;
+    border-color: #000000;
+    color: #dddddd;
     background-color: #ffffff;
 }
 
 .panel-white > a {
-    color: #dd33cc;
+    color: #000000;
 }
 
 .panel-white > a:hover {
@@ -232,7 +232,7 @@ ul.alert-dropdown {
 
 .panel-yellow > .panel-heading {
     border-color: #ffff00;
-    color: #ffff00;
+    color: #ffffff;
     background-color: #ffff00;
 }
 
