@@ -9,10 +9,17 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC
-from collections import Counter
+from collections import OrderedDict
 
 global symbol 
 symbol = "aapl" 
+
+
+def convert_date(string_date):
+    values = string_date.split('/')
+    date = values[2] + "-" + values[0] + "-" + values[1]
+    return date
+
 
 def build_df(path):
     df = pd.read_csv(path, header=None, error_bad_lines=False, sep=';')
@@ -126,10 +133,20 @@ def get_accuracies(p, labels, symbol):
          writer.writerow(RFC)
          writer.writerow(Perceptrons)
          writer.writerow(svc)
-          
-         
-    
+
     print(jsonarray)
+
+    # Save to JSON format
+    day_predictions_dict = OrderedDict()
+    for x in range(p, ei):
+        day_predictions_dict[convert_date(labels[x][0])] = spred_f[x - p]
+    write_predictions(symbol, day_predictions_dict)
+
+
+def write_predictions(company, predictions):
+    with open("../CSV/" + company + "_predictions.json", "w") as file:
+        json.dump(predictions, file)
+
 
 def get_tfidf(company):   
     symbol = company

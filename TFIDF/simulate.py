@@ -4,6 +4,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from datetime import datetime
 import pytz
+import json
+from collections import OrderedDict
+from datetime import datetime
+
+
+predictions = json.load(open("../CSV/aapl_predictions.json"))
+date_format = "%m/%d/%Y"
+count = 0
+pred = 1
 
 
 def initialize(context):
@@ -11,10 +20,18 @@ def initialize(context):
 
 
 def handle_data(context, data):
-    print(context.portfolio)
-    order(symbol('AAPL'), 10)
+    global count
+    if pred == 1:
+        count += 1
+    else:
+        count = 0
+    if context.portfolio.cash > 0:
+        order(symbol('AAPL'), (count + 1) * 10)
+    else:
+        order(symbol('AAPL'), -10 * count)
+        count = 0
     record(AAPL=data[symbol('AAPL')].price)
-
+    print(context.portfolio)
 
 def analyze(context, perf):
     ax1 = plt.subplot(211)
