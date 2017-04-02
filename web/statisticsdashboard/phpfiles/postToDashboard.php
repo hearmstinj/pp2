@@ -48,7 +48,24 @@
         array_push($daily_close, $day);
     }
     // ============================================================================================
-    $final = array("news" => $news, "quotes" => $change, "history" => $daily_close);
+
+    // ============================================================================================
+    // Generate the bar graph showing accuracies of each stock
+
+    $accuracies = array();
+    foreach ($symbols as $symbol) {
+        if($symbol == 'csco') {
+            continue;
+        }
+        $file_handler = fopen("CSV/FinalResult.csv", "r");
+        for ($i = 0; $i < 5; $i++) {
+            $row = fgetcsv($file_handler);
+            array_push($accuracies, $row[2]);
+        }
+    }
+    // ============================================================================================
+
+    $final = array("news" => $news, "quotes" => $change, "history" => $daily_close, "accuracy" => $accuracies);
 
     echo json_encode($final);
 ?>

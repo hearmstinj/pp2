@@ -244,7 +244,7 @@
 
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-white">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -266,7 +266,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
+                        <div class="panel panel-yellow">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -288,7 +288,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -310,7 +310,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -347,7 +347,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
+                <!--
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-default">
@@ -358,11 +358,13 @@
                                 <div id="morris-donut-chart"></div>
                                 <!--<div class="text-right">
                                     <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div> -->
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                -->
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-desktop fa-fw"></i>Prediction Accuracies</h3>
@@ -684,9 +686,47 @@
                 resize: true,
                 behaveLikeLine: true,
                 lineColors: ["#0000ff", "123321", "#aa33bb", "#0000ff", "#ff0000", "#33ff99"],
-                fillOpacity: 0.5
+                fillOpacity: 0.3
             });
             // ====================================================================================
+
+            // Generate the Morris Bar chart for the prediction accuracies over the 5 stocks:
+            new Morris.Bar({
+              element: 'morris-bar-chart',
+
+              data: [{
+                  symbol: 'AAPL',
+                  accuracy: data.accuracy[0]
+              }, {
+                  symbol: 'AMZN',
+                  accuracy: data.accuracy[1]
+              }, {
+                  symbol: 'GOOGL',
+                  accuracy: data.accuracy[2]
+              }, {
+                  symbol: 'MSFT',
+                  accuracy: data.accuracy[3]
+              }, {
+                  symbol: 'TSLA',
+                  accuracy: data.accuracy[4]
+              }],
+              xkey: 'symbol',
+              ykeys: ['accuracy'],
+              labels: ['Accuracy'],
+              barRatio: 0.4,
+              xLabelAngle: 35,
+              hideHover: 'auto',
+              // barColors: ["#aaaaaa", "#ffff00", "#00cc00", "#3333ff", "#ff0000"],
+              barColors: function (row, series, type) {
+                  console.log("--> "+row.label, series, type);
+                  if(row.label == "AAPL") return "#dddddd";
+                  else if(row.label == "AMZN") return "#ffff00";
+                  else if(row.label == "GOOGL") return "#00cc00";
+                  else if(row.label == "MSFT") return "#3333ff";
+                  else if(row.label == "TSLA") return "#ff0000";
+              },
+              resize: true
+          });
         })
     }
     k();

@@ -208,14 +208,32 @@ ul.alert-dropdown {
     color: #b52b27;
 }
 
+.panel-white {
+    border-color: #111111;
+}
+
+.panel-white > .panel-heading {
+    border-color: #111111;
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.panel-white > a {
+    color: #dd33cc;
+}
+
+.panel-white > a:hover {
+    color: #dddddd;
+}
+
 .panel-yellow {
-    border-color: #f0ad4e;
+    border-color: #ffff00;
 }
 
 .panel-yellow > .panel-heading {
-    border-color: #f0ad4e;
-    color: #fff;
-    background-color: #f0ad4e;
+    border-color: #ffff00;
+    color: #ffff00;
+    background-color: #ffff00;
 }
 
 .panel-yellow > a {
