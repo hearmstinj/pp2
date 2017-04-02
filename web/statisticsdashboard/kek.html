@@ -56,8 +56,9 @@
     <div id="wrapper">
 
         <!-- Navigation -->
+        <!--
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -67,8 +68,9 @@
                 </button>
                 <a class="navbar-brand" id="temp" href="../Project/FrontEnd/RandomHTML/doc1.html" style="letter-spacing:2px">S<span>H</span>E<span>R</span>LOC<span>K</span> ANALYTICS</a>
             </div>
+        -->
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
+            <!-- <ul class="nav navbar-right top-nav"> -->
                 <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                    <!-- <ul class="dropdown-menu message-dropdown">
@@ -149,9 +151,10 @@
                         </li>
                     </ul>
                 </li>-->
+                <!--
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" id="whoisthere" style="font-size:14px" data-toggle="dropdown"><b class="caret"></b></a>
-                    <ul class="dropdown-menu" style="background-color:#CCCCCC">
+                    <ul class="dropdown-menu" style="background-color:#CCCCCC -->
                         <!-- <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
@@ -161,7 +164,7 @@
                         <li>
                             <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
                         </li>
-                        <li class="divider"></li>-->
+                        <li class="divider"></li>
                         <li style="background-color:#CCCCCC">
 
                             <div id="logoutbtn" style="letter-spacing:2px; background-color:#CCCCCC"> Log Out</div>
@@ -169,8 +172,9 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> -->
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <!--
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
@@ -212,7 +216,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-
+    -->
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -382,13 +386,22 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-desktop fa-fw"></i>Device Sizes</h3>
+                                <h3 class="panel-title"><i class="fa fa-desktop fa-fw"></i>Simulation Box</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="morris-donut-chart-size"></div>
-                                <!--<div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div> -->
+                                <form role="form" action="#" method="post" id="f1">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Start Date" id="start_date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="End Date" id="end_date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Capital" id="capital">
+                                    </div>
+
+                                </form>
+                                <button class="btn btn-primary btn-block" id="simulate">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -417,12 +430,14 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-tasks fa-fw"></i>Analytics Panel</h3>
                             </div>
+                            <iframe id="pythonframe" width="0" height="0"></iframe>
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover table-striped">
@@ -500,6 +515,9 @@
 
     </div>
     <!-- /#wrapper -->
+    <div id="python_graph"></div>
+
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -552,19 +570,16 @@
             document.getElementById("whoisthere").innerHTML = userdata.name;
         })
     </script>-->
+    <script type="text/javascript" src="https://mpld3.github.io/js/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://mpld3.github.io/js/mpld3.v0.3.js"></script>
+
+
 
     <script>
-        $("#logoutbtn").click(function() {
-            $.ajax({
-                url: "../Project/mysqlilogin/mylogout.php"
-            }).success(function() {
-                window.location = "../Project/frontend/randomhtml/doc1.html";
-            })
-        })
-    </script>
 
-    <script>
+
         var k = function(){
+
             //document.write("Hi");
             console.log("Hi");
 
@@ -730,6 +745,47 @@
         })
     }
     k();
+    </script>
+    <script>
+        var b = function() {
+            console.log("Python AJAX");
+            var sd = $("#start_date").val();
+            var ed = $("#end_date").val();
+            var ct = $("#capital").val();
+            $.ajax({
+                type: "GET",
+                url: "phpfiles/execpython.php",
+                data: "start=" + sd + "&end=" + ed + "&capital=" + ct
+            }).success(function(graphs) {
+                console.log(graphs.substring(200, 256));
+                function appendHtml(el, str) {
+                  var div = document.createElement('div');
+                  div.innerHTML = str;
+                  while (div.children.length > 0) {
+                        el.appendChild(div.children[0]);
+                  }
+                }
+                var html = '<h1 id="title">Some Title</h1><span style="display:inline-block; width=100px;">Some arbitrary text</span>';
+                appendHtml(document.body, graphs.substring(204)); // "body" has two more children - h1 and span.
+                get_values =  "?start=" + sd + "&end=" + ed + "&capital=" + ct
+                document.getElementById("pythonframe").src = "phpfiles/execpython.php" + get_values;
+                document.getElementById("pythonframe").width = 1310;
+                document.getElementById("pythonframe").height = 700;
+                var p = function() {
+                    scr = graphs.substring(290, graphs.length - 15);
+                    var newdiv = document.createElement('div');
+                    newdiv.innerHTML = scr;
+                    document.getElementById('pythonframe').appendChild(newdiv);
+                }
+                p();
+
+            });
+        }
+        $('#simulate').click(function() {
+            console.log("Heyo, inside click function");
+            b();
+        });
+
     </script>
     <!--<script>
         $.ajax({

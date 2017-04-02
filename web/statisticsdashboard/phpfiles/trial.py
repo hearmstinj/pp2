@@ -1,3 +1,4 @@
+
 from zipline.api import order, record, symbol
 from zipline import run_algorithm
 import pandas as pd
@@ -7,12 +8,11 @@ import json
 from collections import OrderedDict
 from datetime import datetime
 import matplotlib.pyplot as plt, mpld3
+import sys
 
-predictions = json.load(open("../CSV/aapl_predictions.json"))
-date_format = "%m/%d/%Y"
-count = 0
+
 pred = 1
-
+count = 0
 
 def initialize(context):
     pass
@@ -44,20 +44,24 @@ def analyze(context, perf):
     # print(html)
     text = html.split(' ')
     furnished_text = ' '.join(text)
-    print(furnished_text)
-    return furnished_text
-    """
-    with open("../../xampp/htdocs/statisticsdashboard/kek.html", "a") as file:
-        file.write(furnished_text)
-    """
-    # plt.show()
+    print(len(furnished_text))
+    # return furnished_text
 
-startDate = datetime(2017, 1, 1, 0, 0, 0, 0, pytz.utc)
-endDate = datetime(2017, 3, 29, 0, 0, 0, 0, pytz.utc)
+    with open("graph.txt", "w") as file:
+        file.write(html)
+
+    # plt.show()
+start_args = sys.argv[1].split('/')
+end_args = sys.argv[2].split('/')
+capital = sys.argv[3]
+startDate = datetime(int(start_args[0]), int(start_args[1]), int(start_args[2]), 0, 0, 0, 0, pytz.utc)
+endDate = datetime(int(end_args[0]), int(end_args[1]), int(end_args[2]), 0, 0, 0, 0, pytz.utc)
 
 """data = pd.read_pickle("buyapple_out.pickle")
 print(data[:-1])"""
-run_algorithm(start=startDate, end=endDate, handle_data=handle_data, initialize=initialize, capital_base=10000.00, analyze=analyze)
+run_algorithm(start=startDate, end=endDate, handle_data=handle_data, initialize=initialize, capital_base=float(capital), analyze=analyze)
+
+
 """
 # The format of the Portfolio variable under context
 Portfolio(
