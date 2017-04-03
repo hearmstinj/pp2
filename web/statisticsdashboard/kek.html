@@ -443,7 +443,7 @@
                                     <table class="table table-bordered table-hover table-striped">
 
                                         <tr>
-                                            <th colspan="12" align="center">Numerical Data</th>
+                                            <th colspan="4" align="center">Numerical Data</th>
 
                                         </tr>
 
@@ -455,6 +455,8 @@
 
                                             <td align="center">Returns</td>
 
+                                            <td align="center">Maximum Single Day Profit</td>
+
                                         </tr>
                                         <tr>
                                             <td align="center" id="sim_start_cash"></td>
@@ -463,25 +465,27 @@
 
                                             <td align="center" id="sim_capital"></td>
 
-                                        </tr>
-                                        <tr>
-                                            <th colspan="4">Operating System</th>
+                                            <td align="center" id="sim_maxprofit"></td>
 
                                         </tr>
                                         <tr>
-                                            <td align="center">Windows</td>
-                                            <td align="center">Linux</td>
-                                            <td align="center">Android</td>
-                                            <td align="center">Others</td>
+                                            <th colspan="4">Statistical Values</th>
+
                                         </tr>
                                         <tr>
-                                            <td align="center" id="windowsc"></td>
-                                            <td align="center" id="linc"></td>
-                                            <td align="center" id="androidc"></td>
-                                            <td align="center" id="otherosc"></td>
+                                            <td align="center">Max Leverage</td>
+                                            <td align="center">Average Daily Expenditure</td>
+                                            <td align="center">Benchmark Volatility</td>
+                                            <td align="center">beta</td>
                                         </tr>
                                         <tr>
-                                            <th colspan="4">Device Size</th>
+                                            <td align="center" id="max_lev"></td>
+                                            <td align="center" id="ade"></td>
+                                            <td align="center" id="bench_vol"></td>
+                                            <td align="center" id="beta"></td>
+                                        </tr>
+                                        <tr>
+                                            <!--<th colspan="4">Device Size</th>
 
                                         </tr>
                                         <tr>
@@ -497,7 +501,7 @@
                                             <td align="center" id="sizemedium"></td>
                                             <td align="center" id="sizelarge"></td>
 
-                                        </tr>
+                                        </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -795,9 +799,19 @@
                 var sim_start_cash = values[0];
                 var sim_end_cash = values[1];
                 var sim_capital = values[2];
+                var sim_maxprofit = values[4];
+                var max_lev = values[3];
+                var ade = values[5];
+                var bench_vol = values[6];
+                var beta = values[7];
                 document.getElementById("sim_start_cash").innerHTML = sim_start_cash;
                 document.getElementById("sim_end_cash").innerHTML = sim_end_cash;
                 document.getElementById("sim_capital").innerHTML = sim_capital;
+                document.getElementById("sim_maxprofit").innerHTML = sim_maxprofit;
+                document.getElementById("max_lev").innerHTML = max_lev;
+                document.getElementById("ade").innerHTML = ade;
+                document.getElementById("bench_vol").innerHTML = bench_vol;
+                document.getElementById("beta").innerHTML = beta;
             })
         }
         $('#simulate').click(function() {

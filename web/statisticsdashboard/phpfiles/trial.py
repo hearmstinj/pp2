@@ -46,7 +46,7 @@ def analyze(context, perf):
     furnished_text = ' '.join(text)
     # print(len(furnished_text))
     # return furnished_text
-    assoc_data = str(perf.starting_cash[0]) + " " +  str(perf.ending_cash[-1]) + " " +  str(perf.algorithm_period_return[-1])
+    assoc_data = str(perf.starting_cash[0]) + " " +  str(perf.ending_cash[-1]) + " " +  str(perf.algorithm_period_return[-1]) + " " + str(perf.max_leverage[-1]) + " " + str(max(perf.pnl)) + " " + str(sum(perf.capital_used) / len(perf.capital_used)) + " " + str(perf.benchmark_volatility[-1]) + " " + str(perf.beta[-1])
 
     with open("graph.txt", "w") as file:
         file.write(html)

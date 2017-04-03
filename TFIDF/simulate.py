@@ -51,6 +51,11 @@ def analyze(context, perf):
     print(perf.ending_cash[-1])
     print(perf.ending_value[-2])
     print(perf)
+    print(perf.max_leverage)
+    print(max(perf.pnl))
+    print(sum(perf.capital_used) / len(perf.capital_used))
+    print(perf.benchmark_volatility[-1])
+    print(perf.beta[-1])
 
     # plt.show()
 
@@ -59,7 +64,7 @@ endDate = datetime(2017, 3, 29, 0, 0, 0, 0, pytz.utc)
 
 """data = pd.read_pickle("buyapple_out.pickle")
 print(data[:-1])"""
-run_algorithm(start=startDate, end=endDate, handle_data=handle_data, initialize=initialize, capital_base=10000.00, analyze=analyze)
+run_algorithm(start=startDate, end=endDate, handle_data=handle_data, initialize=initialize, capital_base=150000.00, analyze=analyze)
 """
 # The format of the Portfolio variable under context
 Portfolio(
