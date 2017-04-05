@@ -23,7 +23,7 @@ def stem(symbols):
             print(datum[2])
 
         with open("../CSV/" + symbol + "_information_stemmed.csv", "w", encoding='utf-8') as file:
-            writer = csv.writer(file, delimiter=',')
+            writer = csv.writer(file, delimiter=';')
             writer.writerows(data)
 
 stem(['aapl', 'amzn', 'csco', 'tsla', 'ssnlf', 'msft', 'googl'])

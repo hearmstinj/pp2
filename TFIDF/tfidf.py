@@ -26,9 +26,10 @@ def build_df(path):
     #print(df)
     numpy_array = df.as_matrix()
     return numpy_array
-    
+
+
 def generate_tfidf(company):
-    data1 = build_df("../CSV/" + company + "_information.csv")  # convert data to numpy array
+    data1 = build_df("../CSV/" + company + "_information_stemmed.csv")  # convert data to numpy array
     data = data1[::-1, :]
     features = data[:, 2:]  # Extract Features/ Training data
     labels = data[:, 1:2]  # Extract Labels
