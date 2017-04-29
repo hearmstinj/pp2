@@ -10,6 +10,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import Perceptron
 from sklearn.svm import SVC
 from collections import OrderedDict
+import numpy as np
 
 global symbol 
 symbol = "aapl" 
@@ -29,7 +30,7 @@ def build_df(path):
 
 
 def generate_tfidf(company):
-    data1 = build_df("../CSV/" + company + "_information_stemmed.csv")  # convert data to numpy array
+    data1 = build_df("../CSV/" + company + "_information.csv")  # convert data to numpy array
     data = data1[::-1, :]
     features = data[:, 2:]  # Extract Features/ Training data
     labels = data[:, 1:2]  # Extract Labels
@@ -73,11 +74,13 @@ def testingpart(si, pred, ei, labels):
     prev_index = si
     for x in range(si, ei):
         if labels[x][0] != labels[prev_index][0]:
-            val = 1 if pred[prev_index - si:x - si].tolist().count(1) >= pred[prev_index - si:x - si].tolist().count(0) else 0
+            # print(pred[prev_index - si:x - si].tolist().count('1'))
+            # print(pred[prev_index - si:x - si].tolist().count('0'))
+            val = 1 if pred[prev_index - si:x - si].tolist().count('1') > pred[prev_index - si:x - si].tolist().count('0') else 0
             for y in range(prev_index, x):
                 pred[y - si] = val
             prev_index = x
-    val = 1 if pred[prev_index - si:x - si].tolist().count(1) >= pred[prev_index - si:x - si].tolist().count(
+    val = 1 if pred[prev_index - si:x - si].tolist().count(1) > pred[prev_index - si:x - si].tolist().count(
         0) else 0
     for y in range(prev_index, x):
         pred[y - si] = val
@@ -89,7 +92,7 @@ def get_accuracies(p, labels, symbol):
      
     gnb = GaussianNB()
     y_pred = gnb.fit(V[:p], a[:p]).predict(V[p:])
-    print(len(a[p:]), len(y_pred))
+    print(len(a[p:]), len(y_pred), len(V[p:]), len(V[:p]))
     print("Number of mislabelled points out of a total %d points is %d using Gaussian Naive Bayes" % (len(V), (a[p:] != y_pred).sum()))
     y_pred_f = testingpart(p, y_pred, ei, labels)
     naiveaccuracy = (l - (a[p:] != y_pred).sum())/l*100
@@ -99,7 +102,11 @@ def get_accuracies(p, labels, symbol):
     rnb = RandomForestClassifier(n_estimators=100)
     rfpred = rnb.fit(V[:p], a[:p]).predict(V[p:])
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred).sum()))
+    temp_pred = np.copy(rfpred)
     rfpred_f = testingpart(p, rfpred, ei, labels)
+    # for x in range(p, len(V)):
+        # print([labels[x][0], temp_pred[x - p], rfpred_f[x - p]])
+
     randomaccuracy = (l - (a[p:] != rfpred).sum())/l*100
     ra_count = (a[p:] != rfpred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Random Forest Classifier" % (len(V), (a[p:] != rfpred_f).sum()))
@@ -120,7 +127,28 @@ def get_accuracies(p, labels, symbol):
     sa_count = (a[p:] != spred_f).sum()
     print("Number of mislabelled points out of a total %d points is %d using Support Vector Machines" % (len(V), (a[p:] != spred_f).sum()))
 
-    dict = {'NaiveBayes' : naiveaccuracy, 'RandomForest': randomaccuracy, 'Perceptron': perceptronaccuracy, 'SVM': SVMaccuracy}
+    # Testing out different SVM kernels over here
+    lsvm = SVC(kernel='linear')
+    lsvmpred = lsvm.fit(V[:p], a[:p]).predict(V[p:])
+    print("Number of mislabelled points out of a total %d points is %d using LinearSVM" % (
+        len(V), (a[p:] != lsvmpred).sum()))
+    lsvmpred_f = testingpart(p, lsvmpred, ei, labels)
+    LSVMaccuracy = (l - (a[p:] != lsvmpred).sum()) / l * 100
+    lsvma_count = (a[p:] != lsvmpred_f).sum()
+    print("Number of mislabelled points out of a total %d points is %d using LinearSVM" % (
+        len(V), (a[p:] != lsvmpred_f).sum()))
+
+    rsvm = SVC(kernel='rbf', gamma=100)
+    rsvmpred = rsvm.fit(V[:p], a[:p]).predict(V[p:])
+    print("Number of mislabelled points out of a total %d points is %d using RBFKernel" % (
+        len(V), (a[p:] != rsvmpred).sum()))
+    rsvmpred_f = testingpart(p, rsvmpred, ei, labels)
+    RSVMaccuracy = (l - (a[p:] != rsvmpred).sum()) / l * 100
+    rsvma_count = (a[p:] != rsvmpred_f).sum()
+    print("Number of mislabelled points out of a total %d points is %d using RBFKernel" % (
+        len(V), (a[p:] != rsvmpred_f).sum()))
+    # END TESTING OUT DIFFERENT SVM
+    dict = {'NaiveBayes' : naiveaccuracy, 'RandomForest': randomaccuracy, 'Perceptron': perceptronaccuracy, 'SVM': SVMaccuracy, 'LSVM': LSVMaccuracy, 'RSVM': RSVMaccuracy}
 
     jsonarray = json.dumps(dict, ensure_ascii=False)
     
@@ -154,7 +182,7 @@ def write_predictions(company, predictions):
 def get_tfidf(company):   
     symbol = company
     labels = generate_tfidf(company)
-    get_accuracies(200, labels, company) 
+    get_accuracies(400, labels, company)
     
     
 
